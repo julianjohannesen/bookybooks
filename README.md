@@ -65,10 +65,11 @@ And again you'd need to tell what the previous code actually does.
 
 ## Features
 
-What's all the bells and whistles this project can perform?
-* What's the main functionality
-* You can also do another thing
-* If you get really randy, you can even do this
+* Search and browse through the list of books that match a given query.
+* View information about a book, including metadata, availability and price, links to the preview page.
+* Create bookshelves and add and remove books from them.
+* Rate books with a star rating.
+* Write reviews of books.
 
 ## Configuration
 
@@ -111,6 +112,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for additional information.
 - Related projects:
   - Your other project: https://github.com/your/other-project/
   - Someone else's project: https://github.com/someones/awesome-project/
+  - Google Books API pages: https://developers.google.com/books/
 
 
 ## Licensing
