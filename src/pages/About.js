@@ -4,12 +4,13 @@ import Footer from '../layout/Footer';
 
 export default function About() {
     return (
-        <div>
+        <React.Fragment>
             <Header />
             <article className="section">
-                <p>This is the about page.</p> 
+                <p>This is the about page.</p>
             </article>
             <Footer />
-        </div>
+        </React.Fragment>
+
     )
 }
