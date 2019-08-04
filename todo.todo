@@ -1,3 +1,13 @@
 Testing: 
-    How do you add a jest test script to package.json without removing the native react Testing
+    React runs Jest, but you can add Enzyme and its dependencies and also enzyme-jest, although that last part isn't necessary.
+
+Views:
+    It should have a search page
+        It should have a text input
+            It should be contained in a controlled form
+        It should have a "Search" button
+            It should be contained in a controlled form
+        It should have a header
+        It should have a footer
+
     
