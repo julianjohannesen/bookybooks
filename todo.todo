@@ -2,12 +2,24 @@ Testing:
     React runs Jest, but you can add Enzyme and its dependencies and also enzyme-jest, although that last part isn't necessary.
 
 Views:
-    It should have a search page
-        It should have a text input
-            It should be contained in a controlled form
-        It should have a "Search" button
-            It should be contained in a controlled form
-        It should have a header
-        It should have a footer
+    ☐ @critical It should have a search page:
+        ☐ It should have a header
+        ☐ It should have a footer
+        ☐ It should have a text input:
+            ☐ It should be contained in a controlled form
+        ☐ It should have a "Search" button:
+            ☐ It should be contained in a controlled form
+        ☐ @critical It should display search results:
+            ☐ It sorts results
+            ☐ It filters results
+    ☐ @critical It should have search result items:
+        ☐ Items should show a title, author, cover image, rating, brief summary, publisher, publication date, tags
+        ☐ Clicking item should open detail view
+    ☐ It should have a search result detail view
+    ☐ It should have a library page that displays shelves of books
+    ☐ It should have a shelf view, showing all books assigned to a shelf
+    ☐ It should have a detail view for each book on a shelf
+    ☐ @critical It should have a login view
+
 
     
