@@ -8,7 +8,7 @@ export default function NoMatch({ location }) {
         <React.Fragment>
             <Header />
             <article className="section">
-                <h1>No match for <code>{location.pathname}</code></h1>
+                <h1>Sorry. We could not find a match for <code>{location.pathname}</code></h1>
                 <p>Return <Link to="/">Home</Link></p>
             </article>
             <Footer />
