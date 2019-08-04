@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import About from './pages/About';
 import NoMatch from './pages/NoMatch';
+import Search from './pages/Search';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/about" component={About} />
+            <Route path="/search" component={Search} />
             <Route component={NoMatch} />
         </Switch>
     </Router>, 

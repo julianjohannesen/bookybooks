@@ -11,7 +11,9 @@
     "email": "julian.johannesen@gmail.com"
   },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
