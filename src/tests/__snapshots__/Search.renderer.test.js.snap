@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component Matches the snapshot 1`] = `
+Array [
+  <div>
+    <p>
+      This is the header.
+    </p>
+    <p>
+      The header needs to contain a small menu that allows users to log in and out and see the about page.
+    </p>
+  </div>,
+  <form>
+    <input
+      aria-label="Search for books in Google's book database"
+      id="query"
+      name="query"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <button
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </form>,
+  <div />,
+  <div>
+    <p>
+      This is the footer
+    </p>
+  </div>,
+]
+`;

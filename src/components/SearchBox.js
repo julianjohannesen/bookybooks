@@ -34,6 +34,7 @@ export default class SearchBox extends Component {
     
     render() {
         return (
+            <div>
             <form>
                 <input 
                     aria-label="Search for books in Google's book database"
@@ -48,6 +49,11 @@ export default class SearchBox extends Component {
                     Search
                 </button>
             </form>
+
+            <div>
+            {JSON.stringify(this.state.books)}
+            </div>
+            </div>
         )
     }
 }
