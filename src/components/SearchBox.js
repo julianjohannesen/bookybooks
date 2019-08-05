@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class SearchBox extends Component {
 
     state = {
-        query: ''
+        query: '',
+        books: []
     }
 
     handleInputChange = event => {
@@ -15,10 +17,21 @@ export default class SearchBox extends Component {
         });
     }
 
-    handleSubmit = event => {
+    handleButtonClick = event => {
+
+        // Google Books API endpoint
+        const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY&q=${this.state.query.trim()}&maxResults=40&fields=items(volumeInfo)`
+		
+		axios(url)
+        .then(res=>{
+            this.setState({books: res.data.items});
+            console.log(this.state.books);
+        })
+        .catch(error => console.error('Error:', error))
+        
         event.preventDefault();
     }
-
+    
     render() {
         return (
             <form>
@@ -31,10 +44,7 @@ export default class SearchBox extends Component {
                     type="text" 
                     value={this.state.query}
                 />
-                <button
-                    onSubmit={this.handleSubmit}
-                    type="submit" 
-                >
+                <button onClick={this.handleButtonClick}>
                     Search
                 </button>
             </form>

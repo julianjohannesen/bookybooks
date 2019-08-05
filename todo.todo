@@ -1,5 +1,8 @@
 Testing: 
-    React runs Jest, but you can add Enzyme and its dependencies and also enzyme-jest, although that last part isn't necessary.
+    ☐ React runs Jest, but you can add Enzyme and its dependencies and also enzyme-jest, although that last part isn't necessary.
+    ☐ How do you test that a component loaded correctly?
+    ☐ How do you test that a fetch operation was successful?
+    
 
 Views:
     ☐ @critical It should have a search page:
@@ -22,4 +25,6 @@ Views:
     ☐ @critical It should have a login view
 
 
-    
+    Notes:
+        ☐ Learn more about handling errors in Axios
+
