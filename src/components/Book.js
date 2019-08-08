@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import thumbnailDefault from '../assets/thumbnailDefault.png'
-import BookDetails from './BookDetails'
+import BookDetail from './BookDetail'
 
-export default class BookCard extends React.Component {
+export default class Book extends React.Component {
 
     state = { show: false }
     
@@ -16,8 +16,8 @@ export default class BookCard extends React.Component {
         const { 
             title = 'Title unavailable',
             authors = ['Author unavailable'],
-            averageRating = 0,
-            ratingsCount = 0,
+            // averageRating = 0,
+            // ratingsCount = 0,
             imageLinks = { thumbnail: thumbnailDefault },
             infoLink = '',
         } = this.props.book.volumeInfo
@@ -35,7 +35,7 @@ export default class BookCard extends React.Component {
                         <h3 className="subtitle" >
                             By: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
                         </h3>
-                        {this.props.generateRatings(averageRating, ratingsCount)}
+                        {/*this.props.generateRatings(averageRating, ratingsCount)*/}
                         <button 
                             aria-haspopup="true"
                             className="button is-primary modal-button" 
@@ -46,9 +46,9 @@ export default class BookCard extends React.Component {
                             See this Book
                         </button>
 
-                        <BookDetails 
+                        <BookDetail 
                             book={this.props.book} 
-                            generateRatings={this.props.generateRatings}
+                            //generateRatings={this.props.generateRatings}
                             handleClose={this.hideModal}
                             show={this.state.show}
                         />
@@ -60,7 +60,7 @@ export default class BookCard extends React.Component {
     }
 }
 
-BookCard.propTypes = {
+Book.propTypes = {
     book: PropTypes.shape({
         title: PropTypes.string,
         authors: PropTypes.arrayOf(PropTypes.string),

@@ -2,7 +2,7 @@ import React from 'react'
 import uuidv4 from 'uuid/v4'
 import thumbnailDefault from '../assets/thumbnailDefault.png'
 
-export default function BookDetails({book, generateRatings, handleClose, show}) {
+export default function BookDetail({book, generateRatings, handleClose, show}) {
 
     const {
         title = 'Title unavailable',
@@ -13,8 +13,8 @@ export default function BookDetails({book, generateRatings, handleClose, show}) 
         description = 'Description unavailable',
         pageCount = 'Page count unavailable',
         categories = ['Categories unavailable'],
-        averageRating = 0,
-        ratingsCount = 0,
+        //averageRating = 0,
+        //ratingsCount = 0,
         imageLinks = { thumbnail: thumbnailDefault },
         //language = 'Language unavailable',
         //previewLink = '',
@@ -53,7 +53,7 @@ export default function BookDetails({book, generateRatings, handleClose, show}) 
                         <h3 className="subtitle" >
                             <strong>By</strong>: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
                         </h3>
-                        {generateRatings(averageRating, ratingsCount)}
+                        {/*generateRatings(averageRating, ratingsCount)*/}
 
                         <p style={{marginBottom: "1em"}}><strong>Description</strong>: {description.substring(0, 500)}</p>
                         <p><strong>Publisher</strong>: {publisher}</p>
