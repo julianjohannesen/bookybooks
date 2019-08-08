@@ -8,4 +8,8 @@ fairyGates.overrideThemeStyles = ({ rhythm }, options) => ({
     }
   })
   
-  const typography = new Typography(sternGroveTheme)
+const typography = new Typography(fairyGates)
+
+// injectStyles is unnecessary when using the React helpers
+
+export default typography;

@@ -1,18 +1,8 @@
 Testing: 
+    ☐ https://facebook.github.io/create-react-app/docs/running-tests
     ☐ React runs Jest, but you can add Enzyme and its dependencies and also enzyme-jest, although that last part isn't necessary.
     ☐ How do you test that a component loaded correctly?
     ☐ How do you test that a fetch operation was successful?
-
-    This is the package.json config for jest with enzyme, but it isn't working right now:
-
-        "jest": {
-            "setupTestFrameworkScriptFile": "jest-enzyme",
-            "testEnvironment": "enzyme",
-            "testEnvironmentOptions": {
-              "enzymeAdapter": "react16"
-            }
-          },
-    
 
 Views:
     ☐ @critical It should have a search page:
@@ -36,5 +26,9 @@ Views:
 
 
     Notes:
+        ☐ CRA: https://facebook.github.io/create-react-app/docs/
+        ☐ Bulma: https://bulma.io/documentation/
         ☐ Learn more about handling errors in Axios
+        ☐ Helmet: https://github.com/nfl/react-helmet
+        ☐ Typography: http://kyleamathews.github.io/typography.js/
 

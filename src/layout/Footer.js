@@ -1,18 +1,17 @@
 import React from 'react'
 
 const style = {
-    backgroundColor: "lightBlue",
-    color: "white",
-    fontSize: "1.5em",
-    padding: "3em",
-    border: "1px solid green",
-    marginTop: "1.5em"
 }
 
 export default function Footer() {
     return (
-        <div style={style}>
-            <p>This is the footer</p>
-        </div>
+        <footer className="footer" style={style}>
+        <div class="content has-text-centered">
+        <p>
+          <strong>MyBooks</strong> by <a href="https://github.com/julianjohannesen">Julian Johannesen</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+      </div>
+        </footer>
     )
 }

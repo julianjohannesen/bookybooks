@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Head from './components/Head';
-import './App.css';
+import Search from './pages/Search';
+import './App.scss';
 
 class App extends Component {
   render() {
     return (
-      <Head />
-      <div className="App">
-        <h2>Welcome to React</h2>
+      <div className="App section">
+        <Head />
+        <Search />
       </div>
     );
   }
