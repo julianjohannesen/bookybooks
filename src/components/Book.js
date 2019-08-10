@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
-import thumbnailDefault from '../assets/thumbnailDefault.png'
+import Image from './BulmaImage';
 import BookDetail from './BookDetail'
 
 export default class Book extends React.Component {
@@ -11,23 +11,33 @@ export default class Book extends React.Component {
     showModal = () => this.setState({ show: true })
     hideModal = () => this.setState({ show: false })
 
+    figStyle = {
+        maxWidth: "128px", 
+        marginRight: "1em", 
+        marginTop: "-65px"
+    }
+
+    imgStyle = {
+        backgroundColor: "#ccc", 
+        border: "1px solid #ccc"
+    }
+
     render(){
 
-        const { 
-            title = 'Title unavailable',
-            authors = ['Author unavailable'],
-            // averageRating = 0,
-            // ratingsCount = 0,
-            imageLinks = { thumbnail: thumbnailDefault },
-            infoLink = '',
-        } = this.props.book.volumeInfo
+        const { title, authors, averageRating, ratingsCount, imageLinks, infoLink } = this.props.book.volumeInfo
             
         return (
             <div className="tile is-parent" style={{ marginTop: "60px", }}>
                 <div className="tile is-child box" >
-                    <figure className="image is-pulled-left" style={{ maxWidth: "128px", marginRight: "1em", marginTop: "-65px", }}>
-                        <img src={imageLinks.thumbnail} alt="Book cover" style={{ backgroundColor: "#ccc", border: "1px solid #ccc", }} />
-                    </figure>
+
+                    <Image 
+                        src={imageLinks.thumbnail}
+                        alt={title} 
+                        figClass={['is-pulled-left']}  
+                        figStyle={this.figStyle} 
+                        imgStyle={this.imgStyle} 
+                    />
+
                     <div className="" style={{ marginLeft: "calc(128px + 2em)" }}>
                         <h2 className="title">
                             <a className="is-size-4" href={infoLink} title={title}>{title}</a>
@@ -58,6 +68,15 @@ export default class Book extends React.Component {
 
         )
     }
+}
+
+Book.defaultProps = {
+    title:'Title unavailable',
+    authors: ['Author unavailable'],
+    averageRating: 0,
+    ratingsCount: 0,
+    imageLinks: {thumbnail: '../assets/thumbnailDefault.png'},
+    infoLink: '',
 }
 
 Book.propTypes = {
