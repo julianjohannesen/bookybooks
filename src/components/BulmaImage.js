@@ -4,14 +4,9 @@ import PropTypes from 'prop-types';
 
 export default function Image({src, alt, figClass, imgClass, figStyle, imgStyle}) {
 
-    const figClasses = classNames({
-        ...figClass,
-        image: true,
-    });
+    const figClasses = classNames([...figClass, 'image']);
 
-    const imgClasses = classNames({
-        ...imgClass
-    });
+    const imgClasses = classNames([...imgClass]);
 
     return (
         <figure 

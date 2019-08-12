@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
+import cn from 'classnames';
 import Image from './BulmaImage';
 import BookDetail from './BookDetail';
 import defaultImg from '../assets/thumbnailDefault.png';
 
 export default class Book extends React.Component {
 
+    //! Under 760px this layout looks like garbage
     state = { show: false }
     
     showModal = () => this.setState({ show: true })
     hideModal = () => this.setState({ show: false })
 
     figStyle = {
-        maxWidth: "128px", 
-        marginRight: "1em", 
-        marginTop: "-65px"
+        width: "128px", 
     }
 
     imgStyle = {
@@ -35,19 +35,19 @@ export default class Book extends React.Component {
         } = this.props.book.volumeInfo;
 
         return (
-            <div className="tile is-parent" >
-                <div className="tile is-child box" >
+            <div className={cn('tile', 'is-parent')} >
+                <div className={cn('tile', 'is-child', 'columns', 'box')} >
 
                     <Image 
                         src={imageLinks.thumbnail ? imageLinks.thumbnail : defaultImg}
                         alt={title} 
-                        figClass={['is-pulled-left']}  
+                        figClass={['column', 'is-one-third']}  
                         figStyle={this.figStyle} 
                         imgStyle={this.imgStyle} 
                     />
 
-                    <div>
-                        <h2 className="title">
+                    <div className={cn('column', 'is-two-thirds')}>
+                        <h2 className='title' style={{marginTop:'0'}}>
                             <a className="is-size-5" href={infoLink} title={title}>{title}</a>
                         </h2>
                         <h3 className="subtitle" >
@@ -56,7 +56,7 @@ export default class Book extends React.Component {
                         {/*this.props.generateRatings(averageRating, ratingsCount)*/}
                         <button 
                             aria-haspopup="true"
-                            className="button is-primary modal-button" 
+                            className={cn('button', 'is-primary', 'modal-button')} 
                             data-type="modal"
                             onClick={this.showModal} 
                             type="button"
