@@ -3,7 +3,10 @@ import uuidv4 from 'uuid/v4'
 //import Ratings from './Ratings'
 import Book from './Book'
 
-export default function SearchResults({ books }) {
+export default function SearchResults(props) {
+    
+    const {books} = props;
+    console.log("I'm in searchResults, here's props: ", props);
 
     const generateRows = () => {
         const arr = []

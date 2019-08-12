@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import Image from './BulmaImage';
-import BookDetail from './BookDetail'
+import BookDetail from './BookDetail';
+import defaultImg from '../assets/thumbnailDefault.png';
 
 export default class Book extends React.Component {
 
@@ -23,24 +24,31 @@ export default class Book extends React.Component {
     }
 
     render(){
+        //! I'm having trouble with how to use defaultProps correctly. I seem to have more luck defining default props while destructuring this.props.book.volumeInfo. One thing I don't understand is how this works, even though certain properties don't always appear in the volumeInfo, e.g. author. And it seems to work, even if I don't provide a default value.
+        const { 
+            title = 'Title Unavailable', 
+            authors = ['Author Unavailable'], 
+            averageRating = 0, 
+            ratingsCount = 0, 
+            imageLinks = {thumbnail: defaultImg}, 
+            infoLink = '' 
+        } = this.props.book.volumeInfo;
 
-        const { title, authors, averageRating, ratingsCount, imageLinks, infoLink } = this.props.book.volumeInfo
-            
         return (
-            <div className="tile is-parent" style={{ marginTop: "60px", }}>
+            <div className="tile is-parent" >
                 <div className="tile is-child box" >
 
                     <Image 
-                        src={imageLinks.thumbnail}
+                        src={imageLinks.thumbnail ? imageLinks.thumbnail : defaultImg}
                         alt={title} 
                         figClass={['is-pulled-left']}  
                         figStyle={this.figStyle} 
                         imgStyle={this.imgStyle} 
                     />
 
-                    <div className="" style={{ marginLeft: "calc(128px + 2em)" }}>
+                    <div>
                         <h2 className="title">
-                            <a className="is-size-4" href={infoLink} title={title}>{title}</a>
+                            <a className="is-size-5" href={infoLink} title={title}>{title}</a>
                         </h2>
                         <h3 className="subtitle" >
                             By: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
@@ -70,14 +78,7 @@ export default class Book extends React.Component {
     }
 }
 
-Book.defaultProps = {
-    title:'Title unavailable',
-    authors: ['Author unavailable'],
-    averageRating: 0,
-    ratingsCount: 0,
-    imageLinks: {thumbnail: '../assets/thumbnailDefault.png'},
-    infoLink: '',
-}
+Book.defaultProps = {}
 
 Book.propTypes = {
     book: PropTypes.shape({

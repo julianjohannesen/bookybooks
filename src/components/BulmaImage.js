@@ -14,8 +14,16 @@ export default function Image({src, alt, figClass, imgClass, figStyle, imgStyle}
     });
 
     return (
-        <figure className={figClasses} style={figStyle} >
-            <img className={imgClasses} src={src} alt={alt} style={imgStyle} />
+        <figure 
+            className={figClasses} 
+            style={figStyle} 
+        >
+            <img 
+                className={imgClasses} 
+                src={src || '../assets/thumbnailDefault.png'} 
+                alt={alt} 
+                style={imgStyle} 
+            />
         </figure>
     )
 }
