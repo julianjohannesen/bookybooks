@@ -14,6 +14,13 @@ export default class Book extends React.Component {
     showModal = () => this.setState({ show: true })
     hideModal = () => this.setState({ show: false })
 
+    authorList = (authors) => {
+        let list = '';
+        if(authors.length === 1) return authors[0];
+        else authors.map( auth => list += auth + ", " );
+        return list.slice(0,-2);
+    }
+
     figStyle = {
         width: "128px", 
     }
@@ -28,6 +35,8 @@ export default class Book extends React.Component {
         const { 
             title = 'Title Unavailable', 
             authors = ['Author Unavailable'], 
+            publisher = 'Unknown',
+            publishedDate = 'Unknown',
             averageRating = 0, 
             ratingsCount = 0, 
             imageLinks = {thumbnail: defaultImg}, 
@@ -50,9 +59,10 @@ export default class Book extends React.Component {
                         <h2 className='title' style={{marginTop:'0'}}>
                             <a className="is-size-5" href={infoLink} title={title}>{title}</a>
                         </h2>
-                        <h3 className="subtitle" >
-                            By: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
+                        <h3 className={cn('subtitle', 'is-size-6')} style={{marginBottom:'0'}}>
+                            By: {this.authorList(authors)}
                         </h3>
+                        <h4 className={cn('subtitle', 'is-size-6', 'has-text-grey')} style={{marginTop: '.15em'}}><span data="publisher">{publisher}</span>, <date>{publishedDate.slice(0,4)}</date></h4>
                         {/*this.props.generateRatings(averageRating, ratingsCount)*/}
                         <button 
                             aria-haspopup="true"
