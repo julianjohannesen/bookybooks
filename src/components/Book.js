@@ -62,8 +62,8 @@ export default class Book extends React.Component {
                         <h3 className={cn('subtitle', 'is-size-6')} style={{marginBottom:'0'}}>
                             By: {this.authorList(authors)}
                         </h3>
-                        <h4 className={cn('subtitle', 'is-size-6', 'has-text-grey')} style={{marginTop: '.15em'}}><span data="publisher">{publisher}</span>, <date>{publishedDate.slice(0,4)}</date></h4>
-                        {/*this.props.generateRatings(averageRating, ratingsCount)*/}
+                        <h4 className={cn('subtitle', 'is-size-6', 'has-text-grey')} style={{marginTop: '.15em'}}><span data="publisher">{publisher}</span>, <span>{publishedDate.slice(0,4)}</span></h4>
+                        {this.props.generateRatings(averageRating, ratingsCount)}
                         <button 
                             aria-haspopup="true"
                             className={cn('button', 'is-primary', 'modal-button')} 
@@ -76,7 +76,8 @@ export default class Book extends React.Component {
 
                         <BookDetail 
                             book={this.props.book} 
-                            //generateRatings={this.props.generateRatings}
+                            authorList = {this.authorList}
+                            generateRatings={this.props.generateRatings}
                             handleClose={this.hideModal}
                             show={this.state.show}
                         />

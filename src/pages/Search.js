@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import SearchBox from '../components/SearchBox';
@@ -15,8 +14,6 @@ export default class Search extends Component {
     searchForBooks = (event, query) => {
 
         event.preventDefault();
-
-        console.log("does it fire?")
 
         // Google Books API endpoint
         const url = `https://www.googleapis.com/books/v1/volumes?key=AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY&q=${query.trim()}&maxResults=40&fields=items(volumeInfo)`

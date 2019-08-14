@@ -1,30 +1,36 @@
-import React from 'react'
-import uuidv4 from 'uuid/v4'
-import thumbnailDefault from '../assets/thumbnailDefault.png'
+import React from 'react';
+import cn from 'classnames';
+import uuidv4 from 'uuid/v4';
+import thumbnailDefault from '../assets/thumbnailDefault.png';
 
-export default function BookDetail({book, generateRatings, handleClose, show}) {
+export default function BookDetail({book, authorList, generateRatings, handleClose, show}) {
 
     const {
         title = 'Title unavailable',
         subtitle = "",
         authors = ['Author unavailable'],
-        publisher = 'Publisher unavailable]',
+        publisher = 'Publisher unavailable',
         publishedDate = 'Published date unavailable',
         description = 'Description unavailable',
         pageCount = 'Page count unavailable',
         categories = ['Categories unavailable'],
-        //averageRating = 0,
-        //ratingsCount = 0,
+        averageRating = 0,
+        ratingsCount = 0,
         imageLinks = { thumbnail: thumbnailDefault },
-        //language = 'Language unavailable',
-        //previewLink = '',
+        language = 'Language unavailable',
+        previewLink = '',
         infoLink = '',
-        //canonicalVolumeLink = '',
+        canonicalVolumeLink = '',
     } = book.volumeInfo
 
+    const showModal = cn({
+        modal: true,
+        ['is-active']: show
+    });
 
     return (
-        <div className={show ? "modal is-block" : "modal is-hidden"} >
+        //! redo with classnames, move logic out of JSX
+        <div className={showModal}>
             <div className="modal-background"></div>
             <div className="modal-card">
                 <header className="modal-card-head">
@@ -51,16 +57,17 @@ export default function BookDetail({book, generateRatings, handleClose, show}) {
                         <h1 className="title">{title}</h1>
                         <h2 className="subtitle">{subtitle}</h2>
                         <h3 className="subtitle" >
-                            <strong>By</strong>: {authors.map(auth => <span key={uuidv4()}>{auth} </span>)}
+                            <strong>By</strong>: {authorList(authors)}
                         </h3>
-                        {/*generateRatings(averageRating, ratingsCount)*/}
+                        {generateRatings(averageRating, ratingsCount)}
 
-                        <p style={{marginBottom: "1em"}}><strong>Description</strong>: {description.substring(0, 500)}</p>
+                        //! Need a way to see full description
+                        <p><strong>Description</strong>: {description.substring(0, 500)}</p>
                         <p><strong>Publisher</strong>: {publisher}</p>
                         <p><strong>Publication Date</strong>: {publishedDate}</p>
                         <p><strong>Pages</strong>: {pageCount}</p>
-                        <p style={{marginBottom: "1em"}}><strong>Categories</strong>: {categories.map(cat => <span key={uuidv4()}>{cat}</span>)}</p>
-                        <a className="button is-primary" href={infoLink} title="Additional information on the Google Books site">Additional</a>
+                        <p><strong>Categories</strong>: {categories.map(cat => <span key={uuidv4()}>{cat}</span>)}</p>
+                        <button className="button is-primary" href={infoLink} title="Additional information on the Google Books site">Additional</button>
                     </div>
                 </section>
                     <footer className="modal-card-foot">
