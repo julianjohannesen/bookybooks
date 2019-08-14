@@ -3,6 +3,8 @@
 
 MyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books. 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5bfdd004-9f0d-42f9-956d-816b550aef04/deploy-status)](https://app.netlify.com/sites/mybookslive/deploys)
+
 ## Installing / Getting started
 
 To get started, run the following commands in the terminal.
