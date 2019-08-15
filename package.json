@@ -1,7 +1,7 @@
 {
-  "name": "mybooks",
+  "name": "bookybook",
   "version": "0.1.0",
-  "homepage": "https://julianjohannesen.github.io/mybooks",
+  "homepage": "https://bookybooks.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/julianjohannesen/mybooks/"

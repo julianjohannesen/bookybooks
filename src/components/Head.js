@@ -14,12 +14,12 @@ export default class Head extends Component {
                 
                 <Helmet>
                     <meta name="author" content="Julian Johannesen" />
-                    <meta name="description" content="MyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books." />
+                    <meta name="description" content="BookyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books." />
                     
-                    <meta property="og:title" content="MyBooks" />
-                    <meta property="og:site_name" content="MyBooks" />
-                    <meta property="og:url" content="MyBooksLive.netlify.com" />
-                    <meta property="og:description" content="MyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books." />
+                    <meta property="og:title" content="BookyBooks" />
+                    <meta property="og:site_name" content="BookyBooks" />
+                    <meta property="og:url" content="BookyBooksLive.netlify.com" />
+                    <meta property="og:description" content="BookyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books." />
                     <meta property="og:type" content="website" />
                     <meta property="og:image" content="" />
 

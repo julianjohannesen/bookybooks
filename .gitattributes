@@ -1,3 +1,6 @@
+# JJ added this after installing remote-wsl in vscode to control  incompatiblities between line ending policy for windows vs. everyone else, e.g. windows subsystem for linux. It's the file used by the react-boilerplate project https://github.com/react-boilerplate/react-boilerplate/blob/master/.gitattributes
+
+
 # From https://github.com/Danimoth/gitattributes/blob/master/Web.gitattributes
 
 # Handle line endings automatically for files detected as text
