@@ -24,3 +24,7 @@ https://developers.google.com/identity/protocols/OAuth2UserAgent
 
 ## The Developer's OAuth2.0 Playground:
 https://developers.google.com/oauthplayground
+
+# Google Sign-In JavaScript Client
+## Google Sign-in JavaScript Client Reference
+https://developers.google.com/identity/sign-in/web/reference

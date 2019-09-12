@@ -2,32 +2,41 @@ import React, { Component } from 'react';
 
 export default class OAuth2 extends Component {
 
-    GoogleAuth
-    SCOPE = 'https://www.googleapis.com/auth/books'
-    
+    state = {
+        GoogleAuth: {},
+        user: {},
+        isAuthorized: false
+    }
+
+    apiKey = 'AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY'
+    discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/books/v1/rest'
+    clientId = '38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com'
+    scope = 'https://www.googleapis.com/auth/books'
+
     initClient() {
         console.log("initClient fired!")
         // Retrieve the discovery document(s)
-        const discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/books/v1/rest';
 
         // Initialize the gapi.client object.
         window.gapi.client.init({
-            'apiKey': 'AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY',
-            'discoveryDocs': [discoveryUrl],
-            'clientId': '38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com',
-            'scope': this.SCOPE
+            'apiKey': this.apiKey,
+            'discoveryDocs': [this.discoveryUrl],
+            'clientId': this.clientId,
+            'scope': this.scope
         }).then(function () {
-            this.GoogleAuth = window.gapi.auth2.getAuthInstance();
-            console.log("The GoogleAuth object", this.GoogleAuth)
+            this.setState({
+                GoogleAuth: window.gapi.auth2.getAuthInstance(),
+                user: this.state.GoogleAuth.currentUser.get()
+            });
+            console.log("The GoogleAuth object", this.state.GoogleAuth)
 
             // Listen for sign-in state changes, e.g. when a user grants authorization
-            this.GoogleAuth.isSignedIn.listen(this.updateSigninStatus);
+            this.state.GoogleAuth.isSignedIn.listen(this.updateSigninStatus);
 
             // Handle initial sign-in state. (Determine if user is already signed in.)
-            const user = this.GoogleAuth.currentUser.get();
             this.setSigninStatus();
 
-            // Call handleAuthClick function when user clicks on "Sign In/Authorize" button.
+            // Sign in button listener. Call handleAuthClick function when user clicks on "Sign In/Authorize" button.
             document.querySelector('#sign-in-or-out-button').click(function () {
                 this.handleAuthClick();
             });
@@ -39,19 +48,19 @@ export default class OAuth2 extends Component {
 
     handleAuthClick() {
         console.log("The sign in button handler fired.")
-        if (this.GoogleAuth.isSignedIn.get()) {
+        if (this.state.GoogleAuth.isSignedIn.get()) {
             // User is authorized and has clicked 'Sign out' button.
-            this.GoogleAuth.signOut();
+            this.state.GoogleAuth.signOut();
         } else {
             // User is not signed in. Start Google auth flow.
-            this.GoogleAuth.signIn();
+            this.state.GoogleAuth.signIn();
         }
     }
 
 
     setSigninStatus(isSignedIn) {
-        const user = this.GoogleAuth.currentUser.get();
-        const isAuthorized = user.hasGrantedScopes(this.SCOPE);
+        //const user = this.state.GoogleAuth.currentUser.get();
+        const isAuthorized = this.state.user.hasGrantedScopes(this.scope);
         if (isAuthorized) {
             document.querySelector('#sign-in-or-out-button').textContent = 'Sign out';
             document.querySelector('#revoke-access-button').style.display = 'inline-block';
@@ -64,7 +73,7 @@ export default class OAuth2 extends Component {
 
     updateSigninStatus(isSignedIn) { this.setSigninStatus(); }
 
-    revokeAccess() { this.GoogleAuth.disconnect(); }
+    revokeAccess() { this.state.GoogleAuth.disconnect(); }
 
     componentDidMount() {
         console.log("componentDidMount fires")
