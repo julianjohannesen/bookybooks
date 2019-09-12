@@ -23,7 +23,8 @@ export default class Head extends Component {
                     <meta property="og:type" content="website" />
                     <meta property="og:image" content="" />
 
-                    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+                    <script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+                    <script async defer src="https://apis.google.com/js/api.js"></script>
                 </Helmet>
             </div>
         )

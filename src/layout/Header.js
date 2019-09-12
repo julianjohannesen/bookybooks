@@ -1,12 +1,16 @@
 import React from 'react';
-
-const style = {}
+import OAuth2 from '../components/OAuth2'
 
 export default function Header() {
     return (
-        <header className="header" style={style}>
-            <h1 className="title">MyBooks</h1>
-            <h2 className="subtitle">Books, Authors, Thoughts</h2>
-        </header>
+        <React.Fragment>
+            <header className="header">
+                <h1 className="title">MyBooks</h1>
+                <h2 className="subtitle">Books, Authors, Thoughts</h2>
+            </header>
+            <nav className="navbar">
+                <OAuth2 />
+            </nav>
+        </React.Fragment>
     )
 }
