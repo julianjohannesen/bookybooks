@@ -76,7 +76,8 @@ export default class OAuth2 extends Component {
     revokeAccess() { this.state.GoogleAuth.disconnect(); }
 
     componentDidMount() {
-        console.log("componentDidMount fires")
+        console.log("componentDidMount fires", window.gapi)
+
         // The gapi client is loaded in the Head component via Helmet
         // Call the initClient function after the modules load.
         window.gapi.load('client:auth2', this.initClient);
