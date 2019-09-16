@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 export default class OAuth2 extends Component {
 
@@ -16,8 +16,6 @@ export default class OAuth2 extends Component {
     scope = 'https://www.googleapis.com/auth/books'
 
     initClient() {
-        console.log("initClient fired!")
-
         const authDetails = {
             'apiKey': this.apiKey,
             'discoveryDocs': [this.discoveryUrl],
@@ -25,7 +23,6 @@ export default class OAuth2 extends Component {
             'scope': this.scope
         }
 
-        // Initialize the gapi.client.
         window.gapi.client.init(authDetails).then(function () {
             this.setState({
                 GoogleAuth: window.gapi.auth2.getAuthInstance(),
@@ -33,7 +30,6 @@ export default class OAuth2 extends Component {
                 isSignedIn: this.state.GoogleAuth.isSignedIn,
                 isAuthorized: this.state.user.hasGrantedScopes(this.scope)
             });
-            // Listen for sign-in state changes, e.g. when a user grants authorization
             this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus);
         });
         console.log("The state at the end of initClient: ", this.state)
@@ -51,12 +47,12 @@ export default class OAuth2 extends Component {
             isAuthorized: this.state.user.hasGrantedScopes(this.scope)
         });
         if (this.state.isAuthorized) {
-            document.querySelector('#sign-in-or-out-button').textContent = 'Sign out';
-            document.querySelector('#revoke-access-button').style.display = 'inline-block';
+            document.querySelector('#sign-in').textContent = 'Sign out';
+            document.querySelector('#revoke-access').style.display = 'inline-block';
 
         } else {
-            document.querySelector('#sign-in-or-out-button').textContent = 'Sign In';
-            document.querySelector('#revoke-access-button').style.display = 'none';
+            document.querySelector('#sign-in').textContent = 'Sign In';
+            document.querySelector('#revoke-access').style.display = 'none';
         }
     }
 
@@ -64,14 +60,15 @@ export default class OAuth2 extends Component {
 
     componentDidMount() {
         window.gapi.load('client:auth2', this.initClient);
+        document.getElementById('sign-in').onclick = () => this.handleAuthClick(this.state.isSignedIn);
     }
 
     render() {
 
         return (
             <div>
-                <button className={classNames('button', 'primary')} id="sign-in-or-out-button" onClick={() => this.handleAuthClick(this.state.isSignedIn)}>Sign In</button>
-                <button className={classNames('button', 'primary')} id="revoke-access-button" style={{ "display": "none" }} onClick={this.revokeAccess}>Revoke access</button>
+                <button className={cn('button', 'primary')} id="sign-in">Sign In</button>
+                <button className={cn('button', 'primary')} id="revoke-access" style={{ "display": "none" }} onClick={this.revokeAccess}>Revoke access</button>
             </div>
         )
     }
