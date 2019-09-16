@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 export default class OAuth2 extends Component {
 
     state = {
         GoogleAuth: {},
         user: {},
+        isSignedIn: false,
         isAuthorized: false
     }
 
@@ -15,70 +17,54 @@ export default class OAuth2 extends Component {
 
     initClient() {
         console.log("initClient fired!")
-        // Retrieve the discovery document(s)
 
-        // Initialize the gapi.client object.
-        window.gapi.client.init({
+        const authDetails = {
             'apiKey': this.apiKey,
             'discoveryDocs': [this.discoveryUrl],
             'clientId': this.clientId,
             'scope': this.scope
-        }).then(function () {
+        }
+
+        // Initialize the gapi.client.
+        window.gapi.client.init(authDetails).then(function () {
             this.setState({
                 GoogleAuth: window.gapi.auth2.getAuthInstance(),
-                user: this.state.GoogleAuth.currentUser.get()
+                user: this.state.GoogleAuth.currentUser.get(),
+                isSignedIn: this.state.GoogleAuth.isSignedIn,
+                isAuthorized: this.state.user.hasGrantedScopes(this.scope)
             });
-            console.log("The GoogleAuth object", this.state.GoogleAuth)
-
             // Listen for sign-in state changes, e.g. when a user grants authorization
-            this.state.GoogleAuth.isSignedIn.listen(this.updateSigninStatus);
-
-            // Handle initial sign-in state. (Determine if user is already signed in.)
-            this.setSigninStatus();
-
-            // Sign in button listener. Call handleAuthClick function when user clicks on "Sign In/Authorize" button.
-            document.querySelector('#sign-in-or-out-button').click(function () {
-                this.handleAuthClick();
-            });
-            document.querySelector('#revoke-access-button').click(function () {
-                this.revokeAccess();
-            });
+            this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus);
         });
     }
 
     handleAuthClick() {
         console.log("The sign in button handler fired.")
-        if (this.state.GoogleAuth.isSignedIn.get()) {
-            // User is authorized and has clicked 'Sign out' button.
-            this.state.GoogleAuth.signOut();
-        } else {
-            // User is not signed in. Start Google auth flow.
-            this.state.GoogleAuth.signIn();
-        }
+        if (this.state.isSignedIn) { this.state.GoogleAuth.signOut() }
+        else { this.state.GoogleAuth.signIn() }
     }
 
-
-    setSigninStatus(isSignedIn) {
-        //const user = this.state.GoogleAuth.currentUser.get();
-        const isAuthorized = this.state.user.hasGrantedScopes(this.scope);
-        if (isAuthorized) {
+    setSigninStatus() {
+        this.setState({
+            user: this.state.GoogleAuth.currentUser.get(),
+            isSignedIn: this.state.GoogleAuth.isSignedIn,
+            isAuthorized: this.state.user.hasGrantedScopes(this.scope)
+        });
+        if (this.state.isAuthorized) {
             document.querySelector('#sign-in-or-out-button').textContent = 'Sign out';
             document.querySelector('#revoke-access-button').style.display = 'inline-block';
 
         } else {
-            document.querySelector('#sign-in-or-out-button').textContent = 'Sign In/Authorize';
+            document.querySelector('#sign-in-or-out-button').textContent = 'Sign In';
             document.querySelector('#revoke-access-button').style.display = 'none';
         }
     }
-
-    updateSigninStatus(isSignedIn) { this.setSigninStatus(); }
 
     revokeAccess() { this.state.GoogleAuth.disconnect(); }
 
     componentDidMount() {
         console.log("componentDidMount fires", window.gapi)
 
-        // The gapi client is loaded in the Head component via Helmet
         // Call the initClient function after the modules load.
         window.gapi.load('client:auth2', this.initClient);
     }
@@ -87,8 +73,8 @@ export default class OAuth2 extends Component {
 
         return (
             <div>
-                <button id="sign-in-or-out-button" onClick={this.handleAuthClick}>Sign In</button>
-                <button id="revoke-access-button" style={{ "display": "none" }} onClick={this.handleAuthClick}>Revoke access</button>
+                <button className={classNames('button', 'primary')} id="sign-in-or-out-button" onClick={this.handleAuthClick}>Sign In</button>
+                <button className={classNames('button', 'primary')} id="revoke-access-button" style={{ "display": "none" }} onClick={this.revokeAccess}>Revoke access</button>
             </div>
         )
     }
