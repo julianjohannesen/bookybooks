@@ -4,12 +4,16 @@
 <head>
     <title>Google Sign-In Test</title>
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
+    <!-- Using the data- prefix you can specify at least some of the configuration options available in gapi.signin2.render() -->
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <div id="my-signin2"></div>
+
     <script>
         function onSignIn(googleUser) {
             // Useful data for your client-side scripts:
@@ -24,6 +28,27 @@
             // The ID token you need to pass to your backend:
             var id_token = googleUser.getAuthResponse().id_token;
             console.log("ID Token: " + id_token);
+
+            // Custom button example
+            function onSuccess(googleUser) {
+                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            }
+            function onFailure(error) {
+                console.log(error);
+            }
+            function renderButton() {
+                gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                });
+            }
+
+            renderButton();
         }
     </script>
 </body>

@@ -26,5 +26,14 @@ https://developers.google.com/identity/protocols/OAuth2UserAgent
 https://developers.google.com/oauthplayground
 
 # Google Sign-In JavaScript Client
+
+Google sign-in is a service that allows users to sign in to your app using their google account. It can be implement with just a few lines as you can see on the [introductory page](https://developers.google.com/identity/sign-in/web/).
+
+## Google Sign-in JavaScript Client Getting Started Guide
+
+
 ## Google Sign-in JavaScript Client Reference
 https://developers.google.com/identity/sign-in/web/reference
+
+## Videos from Google Chrome Developers YouTube Channel on Sign-in
+https://www.youtube.com/user/ChromeDevelopers/search?query=signin
