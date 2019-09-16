@@ -79,7 +79,7 @@ export default class OAuth2 extends Component {
         console.log("componentDidMount fires")
         // The gapi client is loaded in the Head component via Helmet
         // Call the initClient function after the modules load.
-        //window.gapi.load('client:auth2', this.initClient);
+        window.gapi.load('client:auth2', this.initClient);
     }
 
     render() {
