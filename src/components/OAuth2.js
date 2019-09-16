@@ -36,11 +36,11 @@ export default class OAuth2 extends Component {
             // Listen for sign-in state changes, e.g. when a user grants authorization
             this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus);
         });
+        console.log("The state at the end of initClient: ", this.state)
     }
 
-    handleAuthClick() {
-        console.log("The sign in button handler fired.")
-        if (this.state.isSignedIn) { this.state.GoogleAuth.signOut() }
+    handleAuthClick(isSignedIn) {
+        if (isSignedIn) { this.state.GoogleAuth.signOut() }
         else { this.state.GoogleAuth.signIn() }
     }
 
@@ -63,9 +63,6 @@ export default class OAuth2 extends Component {
     revokeAccess() { this.state.GoogleAuth.disconnect(); }
 
     componentDidMount() {
-        console.log("componentDidMount fires", window.gapi)
-
-        // Call the initClient function after the modules load.
         window.gapi.load('client:auth2', this.initClient);
     }
 
@@ -73,7 +70,7 @@ export default class OAuth2 extends Component {
 
         return (
             <div>
-                <button className={classNames('button', 'primary')} id="sign-in-or-out-button" onClick={this.handleAuthClick}>Sign In</button>
+                <button className={classNames('button', 'primary')} id="sign-in-or-out-button" onClick={() => this.handleAuthClick(this.state.isSignedIn)}>Sign In</button>
                 <button className={classNames('button', 'primary')} id="revoke-access-button" style={{ "display": "none" }} onClick={this.revokeAccess}>Revoke access</button>
             </div>
         )
