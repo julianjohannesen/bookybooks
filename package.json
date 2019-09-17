@@ -14,7 +14,7 @@
   "dependencies": {
     "jest-environment-enzyme": "^7.1.1",
     "jest-enzyme": "^7.1.1",
-    "netlify-cli": "^2.13.1",
+    "netlify-cli": "^2.15.0",
     "npm": "^6.11.3",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",

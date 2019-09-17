@@ -5,6 +5,10 @@ fairyGates.overrideThemeStyles = ({ rhythm }, options) => ({
     'h2,h3': {
       marginBottom: rhythm(1/2),
       marginTop: rhythm(2),
+    },
+    'a': {
+      backgroundImage: 'none',
+      textShadow: 'none'
     }
   })
   

@@ -6,7 +6,7 @@ import './App.scss';
 class App extends Component {
   render() {
     return (
-      <div className="App section">
+      <div className="App section" style={{paddingTop: "1rem"}}>
         <Head />
         <Search />
       </div>
