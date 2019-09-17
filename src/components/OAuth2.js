@@ -74,7 +74,7 @@ export default class OAuth2 extends Component {
             this.setState({
                 isSignedIn: this.state.GoogleAuth.isSignedIn.get()
             });
-            document.getElementById('sign-in').addEventListener( () => this.handleAuthClick(this.state.isSignedIn) );
+            document.getElementById('sign-in').addEventListener( 'click', () => this.handleAuthClick(this.state.isSignedIn) );
         }
         // Once a user has signed in, get the current user and determine authorization
         if(this.state.isSignedIn !== prevState.isSignedIn){
