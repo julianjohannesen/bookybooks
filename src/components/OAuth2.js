@@ -10,6 +10,15 @@ export default class OAuth2 extends Component {
         isAuthorized: false
     }
 
+    // Handle load, or load errors
+    loadCallbackConfig = {
+        callback: () => { initClient },
+        onerror: () => { throw new Error() },
+        timeout: 5000,
+        ontimeout: () => { throw new Error() }
+    }
+
+    // Athorization details
     apiKey = 'AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY'
     discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/books/v1/rest'
     clientId = '38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com'
@@ -22,19 +31,27 @@ export default class OAuth2 extends Component {
     }
 
     initClient() {
-        console.log("Is gapi init defined?", window.gapi.client.init)
+        console.log("Is gapi.client.init defined?", window.gapi.client.init)
         window.gapi.client.init(this.authDetails)
             .then(function () {
                 this.setState({
-                    GoogleAuth: window.gapi.auth2.getAuthInstance(),
+                    GoogleAuth: window.gapi.auth2.getAuthInstance()
+                })
+            })
+            .then(function () {
+                this.setState({
                     user: this.state.GoogleAuth.currentUser.get(),
-                    isSignedIn: this.state.GoogleAuth.isSignedIn,
+                    isSignedIn: this.state.GoogleAuth.isSignedIn.get(),
                     isAuthorized: this.state.user.hasGrantedScopes(this.scope)
                 })
-            .then(function () {this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus)});
-        });
+            })
+            .then(function () {
+                this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus);
+            })    
         console.log("The state at the end of initClient: ", this.state)
     }
+        
+    
 
     handleAuthClick(isSignedIn) {
         if (isSignedIn) { this.state.GoogleAuth.signOut() }
@@ -44,7 +61,7 @@ export default class OAuth2 extends Component {
     setSigninStatus() {
         this.setState({
             user: this.state.GoogleAuth.currentUser.get(),
-            isSignedIn: this.state.GoogleAuth.isSignedIn,
+            isSignedIn: this.state.GoogleAuth.isSignedIn.get(),
             isAuthorized: this.state.user.hasGrantedScopes(this.scope)
         });
         if (this.state.isAuthorized) {
@@ -60,7 +77,7 @@ export default class OAuth2 extends Component {
     revokeAccess() { this.state.GoogleAuth.disconnect(); }
 
     componentDidMount() {
-        window.gapi.load('client:auth2', this.initClient);
+        window.gapi.load('client:auth2', this.loadCallbackConfig);
         document.getElementById('sign-in').onclick = () => this.handleAuthClick(this.state.isSignedIn);
     }
 
