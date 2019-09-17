@@ -14,23 +14,24 @@ export default class OAuth2 extends Component {
     discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/books/v1/rest'
     clientId = '38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com'
     scope = 'https://www.googleapis.com/auth/books'
+    authDetails = {
+        'apiKey': this.apiKey,
+        'discoveryDocs': [this.discoveryUrl],
+        'clientId': this.clientId,
+        'scope': this.scope
+    }
 
     initClient() {
-        const authDetails = {
-            'apiKey': this.apiKey,
-            'discoveryDocs': [this.discoveryUrl],
-            'clientId': this.clientId,
-            'scope': this.scope
-        }
 
-        window.gapi.client.init(authDetails).then(function () {
-            this.setState({
-                GoogleAuth: window.gapi.auth2.getAuthInstance(),
-                user: this.state.GoogleAuth.currentUser.get(),
-                isSignedIn: this.state.GoogleAuth.isSignedIn,
-                isAuthorized: this.state.user.hasGrantedScopes(this.scope)
-            });
-            this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus);
+        window.gapi.client.init(this.authDetails)
+            .then(function () {
+                this.setState({
+                    GoogleAuth: window.gapi.auth2.getAuthInstance(),
+                    user: this.state.GoogleAuth.currentUser.get(),
+                    isSignedIn: this.state.GoogleAuth.isSignedIn,
+                    isAuthorized: this.state.user.hasGrantedScopes(this.scope)
+                })
+            .then(function () {this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus)});
         });
         console.log("The state at the end of initClient: ", this.state)
     }
