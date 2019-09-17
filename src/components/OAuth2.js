@@ -12,7 +12,7 @@ export default class OAuth2 extends Component {
 
     // Handle loading gapi, or handle any errors
     loadCallbackConfig = {
-        callback: () => { initClient },
+        callback: () => { this.initClient() },
         onerror: () => { throw new Error() },
         timeout: 5000,
         ontimeout: () => { throw new Error() }
@@ -68,7 +68,7 @@ export default class OAuth2 extends Component {
         window.gapi.load('client:auth2', this.loadCallbackConfig);
     }
     
-    componentDidUpdate(preProps, preState) {
+    componentDidUpdate(prevProps, prevState) {
         // Once the Google Authorization Object is stored in state, determine whether a user is signed in
         if(this.state.GoogleAuth !== prevState.GoogleAuth){
             this.setState({
