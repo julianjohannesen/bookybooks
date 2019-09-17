@@ -22,7 +22,7 @@ export default class OAuth2 extends Component {
     }
 
     initClient() {
-
+        console.log("Is gapi init defined?", window.gapi.client.init)
         window.gapi.client.init(this.authDetails)
             .then(function () {
                 this.setState({
