@@ -80,8 +80,13 @@ export default class OAuth2 extends Component {
         if(this.state.isSignedIn !== prevState.isSignedIn){
             this.setState({
                 user: this.state.GoogleAuth.currentUser.get(),
+            });
+        }
+        if(this.state.user !== prevState.user){
+            this.setState({
                 isAuthorized: this.state.user.hasGrantedScopes(this.scope)
             });
+        }
             // Once a user has signed in, start listening for changes to sign in status
             this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus);
         }
