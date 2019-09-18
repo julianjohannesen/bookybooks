@@ -47,14 +47,7 @@ export default class OAuth2 extends Component {
     
     setSigninStatus() {
         
-        if (this.state.isAuthorized) {
-            document.querySelector('#sign-in').textContent = 'Sign out';
-            document.querySelector('#revoke-access').style.display = 'inline-block';
-            
-        } else {
-            document.querySelector('#sign-in').textContent = 'Sign In';
-            document.querySelector('#revoke-access').style.display = 'none';
-        }
+       
     }
     
     revokeAccess() { this.state.GoogleAuth.disconnect(); }
@@ -77,10 +70,16 @@ export default class OAuth2 extends Component {
         }
         // Once a user has signed in, get the current user and determine authorization
         if(this.state.isSignedIn !== prevState.isSignedIn){
+            // Get the current user. On sign out, this might be set to null. Not sure.
             this.setState({
                 user: this.state.GoogleAuth.currentUser.get(),
             });
-            
+            // Toggle the sign in button text
+            if (this.state.isSignedIn) {
+                document.querySelector('#sign-in').textContent = 'Sign out'; 
+            } else {
+                document.querySelector('#sign-in').textContent = 'Sign In';
+            }
         }
         if(this.state.user !== prevState.user){
             this.setState({
