@@ -50,7 +50,11 @@ export default class OAuth2 extends Component {
     
     componentDidMount() {
         // Once the component has mounted, start the authorization process
+        if(window.gapi){
         window.gapi.load('client:auth2', this.gapiLoadConfig);
+        } else {
+            throw new Error("gapi script has not loaded");
+        }
         
     }
     
@@ -84,7 +88,7 @@ export default class OAuth2 extends Component {
                     id="sign-in" 
                     onClick={() => this.handleAuthClick(this.isSignedIn)}
                 >
-                    {this.state.isSignedIn ? 'Sign In' : 'Sign Out'}
+                    {this.state.isSignedIn ? 'Sign Out' : 'Sign In'}
                 </button>
             </div>
         )
