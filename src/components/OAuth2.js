@@ -68,6 +68,7 @@ export default class OAuth2 extends Component {
         window.gapi.load('client:auth2', this.loadCallbackConfig);
     }
     
+    // This is essentially a listener. I'm running these checks every udpate. But is that necessary? If I did all of this with promises, I wouldn't need to run those checks.
     componentDidUpdate(prevProps, prevState) {
         // Once the Google Authorization Object is stored in state, determine whether a user is signed in
         if(this.state.GoogleAuth !== prevState.GoogleAuth){
