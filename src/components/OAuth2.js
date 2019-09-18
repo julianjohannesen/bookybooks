@@ -43,6 +43,7 @@ export default class OAuth2 extends Component {
     handleAuthClick(isSignedIn) {
         if (isSignedIn) { this.state.GoogleAuth.signOut() }
         else { this.state.GoogleAuth.signIn() }
+        console.log("When does this fire?", this.state.isSignedIn, this.state.isAuthorized, this.state.user);
     }
     
     revokeAccess() { this.state.GoogleAuth.disconnect(); }
@@ -85,8 +86,7 @@ export default class OAuth2 extends Component {
             
             return (
                 <div>
-                <button className={cn('button', 'primary')} id="sign-in">Sign In</button>
-                <button className={cn('button', 'primary')} id="revoke-access" style={{ "display": "none" }} onClick={this.revokeAccess}>Revoke access</button>
+                    <button className={cn('button', 'primary')} id="sign-in" onClick={() => this.handleAuthClick(this.isSignedIn)}>Sign In</button>
                 </div>
                 )
     }
