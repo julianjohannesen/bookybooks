@@ -46,7 +46,7 @@ export default class OAuth2 extends Component {
         console.log("When does this fire?", this.state.isSignedIn, this.state.isAuthorized, this.state.user);
     }
     
-    revokeAccess() { this.state.GoogleAuth.disconnect(); }
+    // revokeAccess() { this.state.GoogleAuth.disconnect(); }
     
     componentDidMount() {
         // Once the component has mounted, start the authorization process
@@ -54,7 +54,6 @@ export default class OAuth2 extends Component {
         
     }
     
-    //? This is essentially a listener. I'm running these checks every udpate. But is that necessary? If I did all of this with promises, I wouldn't need to run those checks. On the other hand, I do need to listen for some of these changes
     componentDidUpdate(prevProps, prevState) {
         // Once the Google Authorization Object is stored in state, determine whether a user is signed in
         if(this.state.GoogleAuth !== prevState.GoogleAuth){
@@ -68,12 +67,6 @@ export default class OAuth2 extends Component {
             this.setState({
                 user: this.state.GoogleAuth.currentUser.get(),
             });
-            // Toggle the sign in button text
-            if (this.state.isSignedIn) {
-                document.querySelector('#sign-in').textContent = 'Sign out'; 
-            } else {
-                document.querySelector('#sign-in').textContent = 'Sign In';
-            }
         }
         if(this.state.user !== prevState.user){
             this.setState({
@@ -84,10 +77,16 @@ export default class OAuth2 extends Component {
     
     render() {
             
-            return (
-                <div>
-                    <button className={cn('button', 'primary')} id="sign-in" onClick={() => this.handleAuthClick(this.isSignedIn)}>Sign In</button>
-                </div>
-                )
+        return (
+            <div>
+                <button 
+                    className={cn('button', 'primary')} 
+                    id="sign-in" 
+                    onClick={() => this.handleAuthClick(this.isSignedIn)}
+                >
+                    {this.state.isSignedIn ? 'Sign In' : 'Sign Out'}
+                </button>
+            </div>
+        )
     }
 }
