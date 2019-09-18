@@ -12,8 +12,12 @@ ReactDOM.render(
     <Router basename={process.env.PUBLIC_URL}>
         <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/about" component={About} />
             <Route path="/search" component={Search} />
+            <Route path="/library" component={Library} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/privacy" component={Search} />
+            <Route path="/terms" component={terms} />
             <Route component={NoMatch} />
         </Switch>
     </Router>, 

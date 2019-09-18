@@ -49,7 +49,7 @@ export default class OAuth2 extends Component {
     // revokeAccess() { this.state.GoogleAuth.disconnect(); }
     
     componentDidMount() {
-        // Once the component has mounted, start the authorization process
+        // Once the component has mounted, initialize gapi. If I were loading the script here, I could chain this in a promise.
         if(window.gapi){
         window.gapi.load('client:auth2', this.gapiLoadConfig);
         } else {
