@@ -91,7 +91,7 @@ export default class OAuth2 extends Component {
             // Once a user has signed in, start listening for changes to sign in status
             this.state.GoogleAuth.isSignedIn.listen(this.setSigninStatus);
         }
-    }
+    
         
         render() {
             
