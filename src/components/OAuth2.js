@@ -11,8 +11,8 @@ export default class OAuth2 extends Component {
     }
 
     // Handle loading gapi, or handle any errors
-    loadCallbackConfig = {
-        callback: () => { this.initClient() },
+    gapiLoadConfig = {
+        callback: () => { this.init() },
         onerror: () => { throw new Error() },
         timeout: 5000,
         ontimeout: () => { throw new Error() }
@@ -30,14 +30,14 @@ export default class OAuth2 extends Component {
         'scope': this.scope
     }
 
-    initClient() {
+    init() {
         window.gapi.client.init(this.authDetails)
             .then( () => {
                 this.setState({
                     GoogleAuth: window.gapi.auth2.getAuthInstance()
                 });
             });
-        console.log("The state at the end of initClient: ", this.state)
+        console.log("The state at the end of init: ", this.state)
     }            
     
     handleAuthClick(isSignedIn) {
@@ -45,16 +45,11 @@ export default class OAuth2 extends Component {
         else { this.state.GoogleAuth.signIn() }
     }
     
-    setSigninStatus() {
-        
-       
-    }
-    
     revokeAccess() { this.state.GoogleAuth.disconnect(); }
     
     componentDidMount() {
         // Once the component has mounted, start the authorization process
-        window.gapi.load('client:auth2', this.loadCallbackConfig);
+        window.gapi.load('client:auth2', this.gapiLoadConfig);
         
     }
     
@@ -65,8 +60,6 @@ export default class OAuth2 extends Component {
             this.setState({
                 isSignedIn: this.state.GoogleAuth.isSignedIn.get()
             });
-            // On click, if signed out, then sign in and vice versa.
-            document.getElementById('sign-in').addEventListener( 'click', () => this.handleAuthClick(this.state.isSignedIn) );
         }
         // Once a user has signed in, get the current user and determine authorization
         if(this.state.isSignedIn !== prevState.isSignedIn){
