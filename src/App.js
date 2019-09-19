@@ -82,6 +82,7 @@ class App extends Component {
     }
   }
 
+  //! Putting the Head component only here won't work. I need it on every page. Ugh.
   render() {
     return (
       <div className="App section" style={{ paddingTop: "1rem" }}>

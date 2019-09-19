@@ -3,6 +3,7 @@ import { generateKeyPair } from 'crypto'
 
 //! NOTE: I need to move the whole OAuth logic to the APP component and pass it down as necessary
 
+//! NOTE: when it's time to render individual shelves, I should be using nested routes https://reacttraining.com/react-router/web/guides/philosophy
 // What do I need from props?
 // userID
 // ...

@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import About from './pages/About';
+import Search from './pages/Search';
 import Library from './pages/Library';
+import About from './pages/About';
 import terms from './pages/terms';
 import privacy from './pages/privacy';
 import NoMatch from './pages/NoMatch';
-import Search from './pages/Search';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
