@@ -18,14 +18,14 @@ export default function Header() {
                 <div id="navbar" className="navbar-menu">
                     <div className="navbar-start"></div>
                     <div className="navbar-end">
-                        <Link to="https://bookybooks.org" className="navbar-item">Home</Link>
-                        <Link to="https://www.google.com" className="navbar-item">Library</Link>
-                        <Link to="https://www.google.com" className="navbar-item">Reviews</Link>
+                        <Link to="/" className="navbar-item">Home</Link>
+                        <Link to="/library" className="navbar-item">Library</Link>
+                        <Link to="/reviews" className="navbar-item">Reviews</Link>
                         <div className={cn("navbar-item", "has-dropdown", "is-hoverable")}>
-                            <a to="https://www.google.com" className="navbar-link">More</a>
+                            <a href="#" className="navbar-link">More</a>
                             <div className="navbar-dropdown">
-                                <Link to="https://www.google.com" className="navbar-item">About</Link>
-                                <Link to="https://www.google.com" className="navbar-item">Contact</Link>
+                                <Link to="/about" className="navbar-item">About</Link>
+                                <Link to="/contact" className="navbar-item">Contact</Link>
                                 <hr className="navbar-divider" />
                                 <a href="https://github.com/julianjohannesen/bookybooks" className="navbar-item">Repo</a>
                                 <a href="https://github.com/julianjohannesen/bookybooks/issues" className="navbar-item">Report an issue</a>

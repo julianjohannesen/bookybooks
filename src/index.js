@@ -5,7 +5,9 @@ import './index.css';
 import App from './App';
 import Search from './pages/Search';
 import Library from './pages/Library';
+import Reviews from './pages/Reviews';
 import About from './pages/About';
+import Contact from './pages/Contact';
 import terms from './pages/terms';
 import privacy from './pages/privacy';
 import NoMatch from './pages/NoMatch';
@@ -17,7 +19,9 @@ ReactDOM.render(
             <Route exact path="/" component={App} />
             <Route path="/search" component={Search} />
             <Route path="/library" component={Library} />
+            <Route path="/reviews" component={Reviews} />
             <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
             <Route path="/privacy" component={privacy} />
             <Route path="/terms" component={terms} />
             <Route component={NoMatch} />
