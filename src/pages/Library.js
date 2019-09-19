@@ -6,11 +6,8 @@ import ListShelves from '../components/ListShelves';
 export default function Library() {
     return (
         <React.Fragment>
-            <Header 
-                handleAuthClick={this.props.handleAuthClick}
-                isSignedIn={this.props.isSignedIn}
-            />
-            <ListShelves />
+            <Header />
+            <ListShelves authProps={this.props.authProps} />
             <article className="section">
                 <p>This is the library page.</p>
                 <p>The library page will show:</p>

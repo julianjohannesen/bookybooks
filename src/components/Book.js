@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import uuidv4 from 'uuid/v4'
 import cn from 'classnames';
 import Image from './BulmaImage';
 import BookDetail from './BookDetail';

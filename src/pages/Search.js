@@ -30,10 +30,7 @@ export default class Search extends Component {
     render(){
     return (
         <React.Fragment>
-        <Header 
-        handleAuthClick={this.props.handleAuthClick}
-        isSignedIn={this.props.isSignedIn}
-    />
+        <Header />
             <SearchBox books={this.state.books} searchForBooks={this.searchForBooks} />
             <SearchResults  books={this.state.books}/>
             <Footer />

@@ -5,10 +5,7 @@ import Footer from '../layout/Footer';
 export default function Reviews() {
     return (
         <React.Fragment>
-            <Header 
-                handleAuthClick={this.props.handleAuthClick}
-                isSignedIn={this.props.isSignedIn}
-            />
+            <Header />
             <article className="section">
                 <p>This is the about page.</p>
             </article>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 
 export default class OAuth2 extends Component {
-    
+        
     render() {
             
         return (

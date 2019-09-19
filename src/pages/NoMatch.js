@@ -6,10 +6,7 @@ import Footer from '../layout/Footer';
 export default function NoMatch({ location }) {
     return (
         <React.Fragment>
-        <Header 
-        handleAuthClick={this.props.handleAuthClick}
-        isSignedIn={this.props.isSignedIn}
-    />
+        <Header />
             <article className="section">
                 <h1>Sorry. We could not find a match for <code>{location.pathname}</code></h1>
                 <p>Return <Link to="/">Home</Link></p>

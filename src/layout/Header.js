@@ -22,7 +22,7 @@ export default function Header() {
                         <Link to="/library" className="navbar-item">Library</Link>
                         <Link to="/reviews" className="navbar-item">Reviews</Link>
                         <div className={cn("navbar-item", "has-dropdown", "is-hoverable")}>
-                            <a href="#" className="navbar-link">More</a>
+                            <button className="navbar-link" style={{background:'none',border:'none'}}>More</button>
                             <div className="navbar-dropdown">
                                 <Link to="/about" className="navbar-item">About</Link>
                                 <Link to="/contact" className="navbar-item">Contact</Link>
@@ -32,10 +32,7 @@ export default function Header() {
                             </div>
                         </div>
                         <div className="navbar-item">
-                            <OAuth2 
-                                handleAuthClick={this.props.handleAuthClick}
-                                isSignedIn={this.props.isSignedIn}
-                            />
+                            <OAuth2 />
                         </div>
                     </div>
                 </div>

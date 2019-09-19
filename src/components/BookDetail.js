@@ -17,10 +17,10 @@ export default function BookDetail({book, authorList, generateRatings, handleClo
         averageRating = 0,
         ratingsCount = 0,
         imageLinks = { thumbnail: thumbnailDefault },
-        language = 'Language unavailable',
-        previewLink = '',
+        //language = 'Language unavailable',
+        //previewLink = '',
         infoLink = '',
-        canonicalVolumeLink = '',
+        //canonicalVolumeLink = '',
     } = book.volumeInfo
 
     const showModal = cn({
@@ -61,7 +61,7 @@ export default function BookDetail({book, authorList, generateRatings, handleClo
                         </h3>
                         {generateRatings(averageRating, ratingsCount)}
 
-                        //! Need a way to see full description
+                        {/*! Need a way to see full description*/}
                         <p><strong>Description</strong>: {description.substring(0, 500)}</p>
                         <p><strong>Publisher</strong>: {publisher}</p>
                         <p><strong>Publication Date</strong>: {publishedDate}</p>
