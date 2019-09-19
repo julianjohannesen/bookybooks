@@ -5,7 +5,10 @@ import Footer from '../layout/Footer';
 export default function privacy() {
     return (
         <React.Fragment>
-            <Header />
+        <Header 
+        handleAuthClick={this.props.handleAuthClick}
+        isSignedIn={this.props.isSignedIn}
+    />
             <article className="section">
 
 
