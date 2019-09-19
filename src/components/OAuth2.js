@@ -53,7 +53,7 @@ export default class OAuth2 extends Component {
         if(window.gapi){
             window.gapi.load('client:auth2', this.gapiLoadConfig)
         } else {
-            throw new Error("Library has not loaded.")
+            console.warn("Library has not loaded. Set timeout and try again.")
             setTimeout(window.gapi.load('client:auth2', this.gapiLoadConfig), 250);
         }
         
