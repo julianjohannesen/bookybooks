@@ -31,12 +31,12 @@ The following document was adapted from CodeBuddies.org's excellent CONTRIBUTING
 
 2. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing something like the following command in the terminal (I'm assuming you're using GitHub here):
 
-  `git clone https://github.com/[YOUR_ACCOUNT_NAME]/mybooks.git`
+  `git clone https://github.com/[YOUR_ACCOUNT_NAME]/bookybooks.git`
 
   (Replace the URL with your own repository URL path.)
 
-3. Run `cd mybooks`. Then, set up this repository as an upstream branch using:
-  * `git remote add upstream https://github.com/julianjohannesen/mybooks.git`
+3. Run `cd bookybooks`. Then, set up this repository as an upstream branch using:
+  * `git remote add upstream https://github.com/julianjohannesen/bookybooks.git`
 
   To sync with the upstream repository, do the following:
   * `git fetch upstream`
@@ -49,11 +49,11 @@ The following document was adapted from CodeBuddies.org's excellent CONTRIBUTING
 
 5. Then, run `npm start` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)).
 
-6.Look at some of the [open issues](https://github.com/julianjohannesen/mybooks/issues) and identify one that sparks your interest.
+6.Look at some of the [open issues](https://github.com/julianjohannesen/bookybooks/issues) and identify one that sparks your interest.
 
 If you want to work on the issue, leave a comment on it saying that you're working on it!
 
-Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCHNAME with what you want to name the branch. Conventionally, you should use the issue number in your branch name. For example, if you decided to work on issue https://github.com/julianjohannesen/mybooks/issues/6, you should type `git checkout -b issue-6` to create a branch named `issue-6`.
+Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCHNAME with what you want to name the branch. Conventionally, you should use the issue number in your branch name. For example, if you decided to work on issue https://github.com/julianjohannesen/bookybooks/issues/6, you should type `git checkout -b issue-6` to create a branch named `issue-6`.
 
 9. If you have any questions about the issue you're looking at, you can leave a comment. Read below for more instructions about how to work with branches.
 
@@ -65,7 +65,7 @@ Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCH
 
 13. (Optional) Add yourself as a contributor, if you haven't done so already. Steps are listed [below](#how-do-i-add-myself-as-a-contributor).
 
-If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/julianjohannesen/mybooks/issues/new) on the Github repo!
+If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/julianjohannesen/bookybooks/issues/new) on the Github repo!
 
 
 # Common Questions
@@ -95,7 +95,7 @@ Now we can make commits to our branch (`git commit -am "commit message"`) and `g
 
 Finally, when you're finished working on the fix or feature in your branch, you'll need to submit a pull request!
 
-Click on the "pull request" button by going to https://github.com/julianjohannesen/mybooks/pulls and clicking on "new pull request." Next, select your branch, and submit.
+Click on the "pull request" button by going to https://github.com/julianjohannesen/bookybooks/pulls and clicking on "new pull request." Next, select your branch, and submit.
 
 One of the github maintainers (@julian or someone else) will look over your pull request and accept it after it is reviewed by volunteer contributors. Note that for best practice, the PR [may get "squashed" into one commit](http://softwareengineering.stackexchange.com/questions/263164/why-squash-git-commits-for-pull-requests). If you prefer that the merge not be squashed into one commit, just let me know in the PR!
 
