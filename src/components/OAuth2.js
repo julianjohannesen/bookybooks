@@ -51,9 +51,10 @@ export default class OAuth2 extends Component {
     componentDidMount() {
         // Once the component has mounted, initialize gapi. If I were loading the script here, I could chain this in a promise.
         if(window.gapi){
-        window.gapi.load('client:auth2', this.gapiLoadConfig);
+            window.gapi.load('client:auth2', this.gapiLoadConfig)
         } else {
-            throw new Error("gapi script has not loaded");
+            throw new Error("Library has not loaded.")
+            setTimeout(window.gapi.load('client:auth2', this.gapiLoadConfig), 250);
         }
         
     }
