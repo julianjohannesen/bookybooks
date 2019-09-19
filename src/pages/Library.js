@@ -1,11 +1,13 @@
 import React from 'react';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
+import ListShelves from '../components/ListShelves';
 
 export default function Library() {
     return (
         <React.Fragment>
             <Header />
+            <ListShelves />
             <article className="section">
                 <p>This is the library page.</p>
                 <p>The library page will show:</p>

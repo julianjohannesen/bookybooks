@@ -32,7 +32,10 @@ export default function Header() {
                             </div>
                         </div>
                         <div className="navbar-item">
-                            <OAuth2 />
+                            <OAuth2 
+                                handleAuthClick={this.props.handleAuthClick}
+                                isSignedIn={this.props.isSignedIn}
+                            />
                         </div>
                     </div>
                 </div>
