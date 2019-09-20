@@ -13,7 +13,7 @@ export default class ListShelves extends Component {
 
     //? Do you need the full URL or just /books/v1/...
     requestConfig = {
-        path: 'https://www.googleapis.com/books/v1/mylibrary/bookshelves',
+        path: '/books/v1/mylibrary/bookshelves',
         params: {
             uid: this.props.authProps.user.getId()
         }
@@ -27,14 +27,14 @@ export default class ListShelves extends Component {
                     console.log("Before parsing the data: ", data)
                     JSON.parse(res)
                 }, 
-                (res)=>console.log(res)
+                () => { throw new Error('Error on attempting to parse data.') }
             )
             .then(
                 (data)=>{
                     console.log("After parsing the data: ", data)
                     this.setState({theItems: data})
                 }, 
-                (data)=>console.log(data)
+                () => { throw new Error('Error on attempting to set theItems state.') }
             )
         }
     }
