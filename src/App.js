@@ -1,3 +1,7 @@
+//! I made some sort of routing error. I can't go directly to a url without first loading the site. Like I can't got to bookybooks/library without first going to bookybooks/
+
+//! When the site loads, you briefly see the sign in text, before it realizes that your signed in already
+
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Search from './pages/Search';

@@ -12,6 +12,7 @@ export default class ListShelves extends Component {
     }
 
     //? Do you need the full URL or just /books/v1/...
+    //! I use user.getId(), but should I pass it down instead? Or should I go the other way and just pass the GoogleAuth object and then get the user, get isSignedIn, find out whether scope is granted, etc. etc.?
     requestConfig = {
         path: '/books/v1/mylibrary/bookshelves',
         params: {
@@ -25,14 +26,14 @@ export default class ListShelves extends Component {
             .then(
                 (res)=>{
                     console.log("Before parsing the data: ", data)
-                    JSON.parse(res)
+                    return JSON.parse(res)
                 }, 
                 () => { throw new Error('Error on attempting to parse data.') }
             )
             .then(
                 (data)=>{
                     console.log("After parsing the data: ", data)
-                    this.setState({theItems: data})
+                    return this.setState({theItems: data})
                 }, 
                 () => { throw new Error('Error on attempting to set theItems state.') }
             )
