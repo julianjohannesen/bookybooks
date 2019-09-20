@@ -3,11 +3,11 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import ListShelves from '../components/ListShelves';
 
-export default function Library() {
+export default function Library({authProps}) {
     return (
         <React.Fragment>
-            <Header />
-            <ListShelves authProps={this.props.authProps} />
+            <Header authProps={authProps}/>
+            <ListShelves authProps={authProps} />
             <article className="section">
                 <p>This is the library page.</p>
                 <p>The library page will show:</p>

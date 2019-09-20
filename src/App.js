@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import cn from 'classnames';
 import Search from './pages/Search';
 import Library from './pages/Library';
 import Reviews from './pages/Reviews';
@@ -10,6 +9,12 @@ import terms from './pages/terms';
 import privacy from './pages/privacy';
 import NoMatch from './pages/NoMatch';
 import './App.scss';
+
+// Athorization details
+const apiKey = 'AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY';
+const discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/books/v1/rest';
+const clientId = '38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com';
+const scope = 'https://www.googleapis.com/auth/books';
 
 class App extends Component {
 
@@ -28,16 +33,11 @@ class App extends Component {
 		ontimeout: () => { throw new Error() }
 	}
 
-	// Athorization details
-	apiKey = 'AIzaSyCP4wm4HGR-D-IHRvlnlXGBGGSsjhaR9CY'
-	discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/books/v1/rest'
-	clientId = '38504770633-kkfnu7g5c9jcsrqqi55d6amrl4v398qm.apps.googleusercontent.com'
-	scope = 'https://www.googleapis.com/auth/books'
 	authDetails = {
-		'apiKey': this.apiKey,
-		'discoveryDocs': [this.discoveryUrl],
-		'clientId': this.clientId,
-		'scope': this.scope
+		'apiKey': apiKey,
+		'discoveryDocs': [discoveryUrl],
+		'clientId': clientId,
+		'scope': scope
 	}
 
 	init() {
@@ -48,12 +48,6 @@ class App extends Component {
 				});
 			});
 		console.log("The state at the end of init: ", this.state)
-	}
-
-	handleAuthClick(isSignedIn) {
-		if (isSignedIn) { this.state.GoogleAuth.signOut() }
-		else { this.state.GoogleAuth.signIn() }
-		console.log("When does this fire?", this.state.isSignedIn, this.state.isAuthorized, this.state.user);
 	}
 
 	// revokeAccess() { this.state.GoogleAuth.disconnect(); }
@@ -92,27 +86,22 @@ class App extends Component {
 
 	render() {
 		return (
-
-			<Router basename={process.env.PUBLIC_URL}>
-				<div className={cn("App", "section")} style={{ paddingTop: "1rem" }}>
-					<Search />
-				</div>
-				<Switch>
-					<Route exact path="/" component={App} />
-					<Route path="/search" component={Search} />
-					<Route path="/library" component={Library} />
-					<Route path="/reviews" component={Reviews} />
-					<Route path="/about" component={About} />
-					<Route path="/contact" component={Contact} />
-					<Route path="/privacy" component={privacy} />
-					<Route path="/terms" component={terms} />
-					<Route component={NoMatch} />
-				</Switch>
-			</Router>
-
-
-			
-    );
+			<div className="App" style={{padding:'2em'}}>
+				<Router basename={process.env.PUBLIC_URL}>
+					<Switch>
+						<Route exact path="/" render={ props => <Search {...props} authProps={this.state} /> } />
+						<Route path="/search" render={ props => <Search {...props} authProps={this.state} /> }  />
+						<Route path="/library" render={ props => <Library {...props} authProps={this.state} /> }  />
+						<Route path="/reviews" render={ props => <Reviews {...props} authProps={this.state} /> }  />
+						<Route path="/about" render={ props => <About {...props} authProps={this.state} /> }  />
+						<Route path="/contact" render={ props => <Contact {...props} authProps={this.state} /> }  />
+						<Route path="/privacy" render={ props => <privacy {...props} authProps={this.state} /> }  />
+						<Route path="/terms" render={ props => <terms {...props} authProps={this.state} /> }  />
+						<Route render={ props => <NoMatch {...props} authProps={this.state} /> }  />
+					</Switch>
+				</Router>
+			</div>
+		);
 	}
 }
 
