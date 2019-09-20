@@ -25,7 +25,7 @@ export default class ListShelves extends Component {
             window.gapi.client.request(this.requestConfig)
             .then(
                 (res)=>{
-                    console.log("Before parsing the data: ", data)
+                    console.log("Before parsing the data: ", res)
                     return JSON.parse(res)
                 }, 
                 () => { throw new Error('Error on attempting to parse data.') }
