@@ -54,7 +54,6 @@ class App extends Component {
 					GoogleAuth: window.gapi.auth2.getAuthInstance()
 				});
 			});
-		console.log("The state at the end of init: ", this.state)
 	}
 
 	// revokeAccess() { this.state.GoogleAuth.disconnect(); }
@@ -88,6 +87,7 @@ class App extends Component {
 		}
 		if (this.state.user !== prevState.user) {
 			this.setState({
+				uid: this.state.user.getId(),
 				isAuthorized: this.state.user.hasGrantedScopes(this.scope)
 			});
 		}

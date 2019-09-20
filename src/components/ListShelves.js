@@ -11,8 +11,6 @@ export default class ListShelves extends Component {
         theItems: []
     }
 
-    //? Do you need the full URL or just /books/v1/...
-    //! I use user.getId(), but should I pass it down instead? Or should I go the other way and just pass the GoogleAuth object and then get the user, get isSignedIn, find out whether scope is granted, etc. etc.?
     requestConfig = {
         path: '/books/v1/mylibrary/bookshelves',
         params: {

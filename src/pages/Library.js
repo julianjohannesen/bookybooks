@@ -9,13 +9,7 @@ export default function Library({authProps}) {
             <Header authProps={authProps}/>
             <ListShelves authProps={authProps} />
             <article className="section">
-                <p>This is the library page.</p>
-                <p>The library page will show:</p>
-                <ul>
-                    <li>The header and footer</li>
-                    <li>A small search box</li>
-                    <li>Bookshelves containing books that have been saved to a shelf</li>
-                </ul>
+                <p>Everything that's not in the ListShelves component appears here.</p>
             </article>
             <Footer />
         </React.Fragment>
