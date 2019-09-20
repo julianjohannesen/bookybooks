@@ -70,8 +70,8 @@ class App extends Component {
 		if (this.state.GoogleAuth !== prevState.GoogleAuth) {
 			this.setState({
 				isSignedIn: this.state.GoogleAuth.isSignedIn.get(),
-				signIn: this.state.GoogleAuth.signin,
-				signOut: this.state.GoogleAuth.signout
+				signIn: this.state.GoogleAuth.signIn,
+				signOut: this.state.GoogleAuth.signOut
 			});
 		}
 		// Once a user has signed in, get the current user and determine authorization
