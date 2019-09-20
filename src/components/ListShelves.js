@@ -23,14 +23,18 @@ export default class ListShelves extends Component {
         if(this.props.authProps.isAuthorized){
             window.gapi.client.request(this.requestConfig)
             .then(
-                console.log("Before parsing", res)
-                (res)=>JSON.parse(res), 
+                (res)=>{
+                    console.log("Before parsing the data: ", data)
+                    JSON.parse(res)
+                }, 
                 (res)=>console.log(res)
             )
             .then(
-                (data)=>this.setState({theItems: data.items}), 
+                (data)=>{
+                    console.log("After parsing the data: ", data)
+                    this.setState({theItems: data})
+                }, 
                 (data)=>console.log(data)
-                console.log("After parsing", this.state.theItems)
             )
         }
     }
