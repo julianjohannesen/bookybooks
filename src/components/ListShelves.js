@@ -16,7 +16,7 @@ export default class ListShelves extends Component {
     requestConfig = {
         path: '/books/v1/mylibrary/bookshelves',
         params: {
-            uid: this.props.authProps.user.getId()
+            uid: this.props.authProps.uid
         }
     }
     
@@ -31,9 +31,9 @@ export default class ListShelves extends Component {
                 () => { throw new Error('Error on attempting to parse data.') }
             )
             .then(
-                (data)=>{
-                    console.log("After parsing the data: ", data)
-                    return this.setState({theItems: data})
+                (parsed)=>{
+                    console.log("After parsing the data: ", parsed)
+                    return this.setState({theItems: parsed.result.items})
                 }, 
                 () => { throw new Error('Error on attempting to set theItems state.') }
             )

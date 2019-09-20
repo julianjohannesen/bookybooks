@@ -25,6 +25,7 @@ class App extends Component {
 	state = {
 		GoogleAuth: {},
 		user: {},
+		uid: null,
 		isSignedIn: false,
 		isAuthorized: false,
 		signIn: () => {console.warn('No GoogleAuth instance.')},
