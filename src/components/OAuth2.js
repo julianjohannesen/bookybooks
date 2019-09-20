@@ -4,8 +4,8 @@ import cn from 'classnames';
 export default function OAuth2 ({authProps}) {
 
     const handleAuthClick = isSignedIn => {
-		if (isSignedIn) { authProps.GoogleAuth.signOut() }
-		else { authProps.GoogleAuth.signIn() }
+		if (isSignedIn) { authProps.signOut() }
+		else { authProps.signIn() }
 		console.log("When does this fire?", authProps.isSignedIn, authProps.isAuthorized, authProps.user);
     }
     

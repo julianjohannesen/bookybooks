@@ -22,7 +22,9 @@ class App extends Component {
 		GoogleAuth: {},
 		user: {},
 		isSignedIn: false,
-		isAuthorized: false
+		isAuthorized: false,
+		signIn: () => {console.warn('No GoogleAuth instance.')},
+		signOut: () => {console.warn('No GoogleAuth instance.')}
 	}
 
 	// Handle loading gapi, or handle any errors
@@ -67,7 +69,9 @@ class App extends Component {
 		// Once the Google Authorization Object is stored in state, determine whether a user is signed in
 		if (this.state.GoogleAuth !== prevState.GoogleAuth) {
 			this.setState({
-				isSignedIn: this.state.GoogleAuth.isSignedIn.get()
+				isSignedIn: this.state.GoogleAuth.isSignedIn.get(),
+				signIn: this.state.GoogleAuth.signin,
+				signOut: this.state.GoogleAuth.signout
 			});
 		}
 		// Once a user has signed in, get the current user and determine authorization
