@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 export default class ListShelves extends Component {
 
     state={
-        theItems: []
+        theItems: undefined
     }
 
     requestConfig = {
@@ -31,7 +31,7 @@ export default class ListShelves extends Component {
             .then(
                 (parsed)=>{
                     console.log("After parsing the data: ", parsed)
-                    return this.setState({theItems: parsed.result.items})
+                    return this.setState({theItems: parsed})
                 }, 
                 () => { throw new Error('Error on attempting to set theItems state.') }
             )
