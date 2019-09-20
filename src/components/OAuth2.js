@@ -6,7 +6,7 @@ export default function OAuth2 ({authProps}) {
     const handleAuthClick = isSignedIn => {
 		if (isSignedIn) { authProps.signOut() }
 		else { authProps.signIn() }
-		console.log("When does this fire?", authProps.isSignedIn, authProps.isAuthorized, authProps.user);
+		console.log("handleAuthClick fires. Am I signed in?", authProps.isSignedIn, "Am I autherized?", authProps.isAuthorized, "What does the user object look like?", authProps.user);
     }
     
     return (
