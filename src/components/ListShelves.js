@@ -15,7 +15,7 @@ export default class ListShelves extends Component {
     requestConfig = {
         path: 'https://www.googleapis.com/books/v1/mylibrary/bookshelves',
         params: {
-            uid: this.props.authProps.userID,
+            uid: this.props.authProps.user.getId()
         }
     }
     
@@ -23,12 +23,14 @@ export default class ListShelves extends Component {
         if(this.props.authProps.isAuthorized){
             window.gapi.client.request(this.requestConfig)
             .then(
+                console.log("Before parsing", res)
                 (res)=>JSON.parse(res), 
                 (res)=>console.log(res)
             )
             .then(
                 (data)=>this.setState({theItems: data.items}), 
                 (data)=>console.log(data)
+                console.log("After parsing", this.state.theItems)
             )
         }
     }
