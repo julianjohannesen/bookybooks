@@ -15,7 +15,6 @@ export default class Head extends Component {
                 <Helmet>
                     <meta name="author" content="Julian Johannesen" />
                     <meta name="description" content="BookyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books." />
-                    <meta name="google-site-verification" content="fDLQrfvyMamh8hdKgTKe3SFYnDDaJnT0dn9g04hk_KA" />
                     
                     <meta property="og:title" content="BookyBooks" />
                     <meta property="og:site_name" content="BookyBooks" />
