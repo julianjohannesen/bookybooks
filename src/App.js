@@ -96,7 +96,7 @@ class App extends Component {
 	render() {
 		return (
 
-			<div className="App">
+			<div className="App" style={{padding: '1rem 2rem'}}>
 				<Router basename={process.env.PUBLIC_URL}>
 					<Switch>
 						<Route exact path="/" render={props => (<Search {...props} authProps={this.state} />)} />

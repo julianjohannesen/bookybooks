@@ -16,4 +16,5 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//! Note: registering the worker will resolve routing issues in client-side apps caused when the server is not configured to handle the index.html request correclty. https://create-react-app.dev/docs/deployment
+serviceWorker.register();
