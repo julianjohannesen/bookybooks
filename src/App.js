@@ -95,9 +95,8 @@ class App extends Component {
 
 	render() {
 		return (
-			<React.Fragment>
 
-				<div className="App"></div>
+			<div className="App">
 				<Router basename={process.env.PUBLIC_URL}>
 					<Switch>
 						<Route exact path="/" render={props => (<Search {...props} authProps={this.state} />)} />
@@ -119,7 +118,8 @@ class App extends Component {
 						<Route render={props => <NoMatch {...props} authProps={this.state} />} />
 					</Switch>
 				</Router>
-			</React.Fragment>
+			</div>
+
 		);
 	}
 }
