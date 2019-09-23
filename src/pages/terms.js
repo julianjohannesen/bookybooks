@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 
-export default function terms() {
+export default function terms({authProps}) {
     return (
         <React.Fragment>
         <Header />

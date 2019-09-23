@@ -2,10 +2,10 @@ import React from 'react';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 
-export default function privacy() {
+export default function privacy({authProps}) {
     return (
         <React.Fragment>
-        <Header />
+        <Header authProps={authProps} />
             <article className="section">
 
 

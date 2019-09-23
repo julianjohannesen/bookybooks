@@ -35,9 +35,9 @@ class App extends Component {
 	// Handle loading gapi, or handle any errors
 	gapiLoadConfig = {
 		callback: () => { this.init() },
-		onerror: () => { throw new Error() },
+		onerror: () => { throw new Error('Gapi did not load') },
 		timeout: 5000,
-		ontimeout: () => { throw new Error() }
+		ontimeout: () => { throw new Error('Timeout expired. Gapi did not load.') }
 	}
 
 	authDetails = {
@@ -100,14 +100,22 @@ class App extends Component {
 				<div className="App"></div>
 				<Router basename={process.env.PUBLIC_URL}>
 					<Switch>
-						<Route exact path="/" render={props => <Search {...props} authProps={this.state} />} />
-						<Route path="/search" render={props => <Search {...props} authProps={this.state} />} />
-						<Route path="/library" render={props => <Library {...props} authProps={this.state} />} />
-						<Route path="/reviews" render={props => <Reviews {...props} authProps={this.state} />} />
+						<Route exact path="/" render={props => (<Search {...props} authProps={this.state} />)} />
+
+						<Route path="/search" render={props => (<Search {...props} authProps={this.state} />)} />
+
+						<Route path="/library" render={props => (<Library {...props} authProps={this.state} />)} />
+
+						<Route path="/reviews" render={props => (<Reviews {...props} authProps={this.state} />)} />
+
 						<Route path="/about" render={props => <About {...props} authProps={this.state} />} />
+
 						<Route path="/contact" render={props => <Contact {...props} authProps={this.state} />} />
+
 						<Route path="/privacy" render={props => <privacy {...props} authProps={this.state} />} />
+
 						<Route path="/terms" render={props => <terms {...props} authProps={this.state} />} />
+
 						<Route render={props => <NoMatch {...props} authProps={this.state} />} />
 					</Switch>
 				</Router>
