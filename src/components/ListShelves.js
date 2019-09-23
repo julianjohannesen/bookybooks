@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-//! NOTE: when it's time to render individual shelves, I should be using nested routes https://reacttraining.com/react-router/web/guides/philosophy
-
 export default class ListShelves extends Component {
 
     state={
