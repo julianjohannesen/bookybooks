@@ -95,7 +95,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App" style={{padding:'2em'}}>
+			<div className="App"></div>
 				<Router basename={process.env.PUBLIC_URL}>
 					<Switch>
 						<Route exact path="/" render={ props => <Search {...props} authProps={this.state} /> } />
@@ -109,7 +109,7 @@ class App extends Component {
 						<Route render={ props => <NoMatch {...props} authProps={this.state} /> }  />
 					</Switch>
 				</Router>
-			</div>
+			
 		);
 	}
 }
