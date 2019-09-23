@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 
 //! NOTE: when it's time to render individual shelves, I should be using nested routes https://reacttraining.com/react-router/web/guides/philosophy
-// What do I need from props? 
-// auth status
-// userID
-// ...
+
 export default class ListShelves extends Component {
 
     state={
-        theItems: undefined
+        theItems: []
     }
 
     requestConfig = {
@@ -23,6 +20,7 @@ export default class ListShelves extends Component {
             window.gapi.client.request(this.requestConfig)
             .then(
                 (res)=>{
+                    console.log(response);
                     this.setState({theItems: res.result.items})
                 }, 
                 () => { throw new Error('Error on attempting to parse data.') }
