@@ -28,8 +28,8 @@ class App extends Component {
 		uid: null,
 		isSignedIn: false,
 		isAuthorized: false,
-		signIn: () => {console.warn('No GoogleAuth instance.')},
-		signOut: () => {console.warn('No GoogleAuth instance.')}
+		signIn: () => { console.warn('No GoogleAuth instance.') },
+		signOut: () => { console.warn('No GoogleAuth instance.') }
 	}
 
 	// Handle loading gapi, or handle any errors
@@ -95,21 +95,23 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App"></div>
+			<React.Fragment>
+
+				<div className="App"></div>
 				<Router basename={process.env.PUBLIC_URL}>
 					<Switch>
-						<Route exact path="/" render={ props => <Search {...props} authProps={this.state} /> } />
-						<Route path="/search" render={ props => <Search {...props} authProps={this.state} /> }  />
-						<Route path="/library" render={ props => <Library {...props} authProps={this.state} /> }  />
-						<Route path="/reviews" render={ props => <Reviews {...props} authProps={this.state} /> }  />
-						<Route path="/about" render={ props => <About {...props} authProps={this.state} /> }  />
-						<Route path="/contact" render={ props => <Contact {...props} authProps={this.state} /> }  />
-						<Route path="/privacy" render={ props => <privacy {...props} authProps={this.state} /> }  />
-						<Route path="/terms" render={ props => <terms {...props} authProps={this.state} /> }  />
-						<Route render={ props => <NoMatch {...props} authProps={this.state} /> }  />
+						<Route exact path="/" render={props => <Search {...props} authProps={this.state} />} />
+						<Route path="/search" render={props => <Search {...props} authProps={this.state} />} />
+						<Route path="/library" render={props => <Library {...props} authProps={this.state} />} />
+						<Route path="/reviews" render={props => <Reviews {...props} authProps={this.state} />} />
+						<Route path="/about" render={props => <About {...props} authProps={this.state} />} />
+						<Route path="/contact" render={props => <Contact {...props} authProps={this.state} />} />
+						<Route path="/privacy" render={props => <privacy {...props} authProps={this.state} />} />
+						<Route path="/terms" render={props => <terms {...props} authProps={this.state} />} />
+						<Route render={props => <NoMatch {...props} authProps={this.state} />} />
 					</Switch>
 				</Router>
-			
+			</React.Fragment>
 		);
 	}
 }
