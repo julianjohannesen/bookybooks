@@ -23,21 +23,10 @@ export default class ListShelves extends Component {
             window.gapi.client.request(this.requestConfig)
             .then(
                 (res)=>{
-                    console.log("Before parsing the data: ", res.result.items)
-                    return JSON.parse(res)
+                    this.setState({theItems: res.result.items})
                 }, 
                 () => { throw new Error('Error on attempting to parse data.') }
-            )
-            .then(
-                (parsed)=>{
-                    console.log("After parsing the data: ", parsed)
-                    return this.setState({theItems: parsed})
-                }, 
-                (parsed) => { 
-                    console.log("After parsing the data: ", parsed)
-                    throw new Error('Error on attempting to set theItems state.') 
-                }
-            )
+            )      
         }
     }
 
@@ -45,7 +34,7 @@ export default class ListShelves extends Component {
         return (
             <div>
                 <h2>Shelves</h2>
-                {/*this.props.authProps.isAuthorized ? (
+                {this.props.authProps.isAuthorized ? (
                     <ul>
                     {this.state.theItems.map(shelf=>{
                         return (
@@ -55,7 +44,7 @@ export default class ListShelves extends Component {
                     </ul>
                 ) : (
                     <p>In order to see your bookshelves and their contents, you'll need to sign-in and authorize BookyBooks to access your Google Books account.</p>
-                )*/}
+                )}
             </div>
         )
     }
