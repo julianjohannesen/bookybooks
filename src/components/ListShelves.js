@@ -33,7 +33,7 @@ export default class ListShelves extends Component {
                     console.log("After parsing the data: ", parsed)
                     return this.setState({theItems: parsed})
                 }, 
-                () => { 
+                (parsed) => { 
                     console.log("After parsing the data: ", parsed)
                     throw new Error('Error on attempting to set theItems state.') 
                 }
