@@ -45,7 +45,7 @@ export default class ListShelves extends Component {
         return (
             <div>
                 <h2>Shelves</h2>
-                {this.props.authProps.isAuthorized ? (
+                {/*this.props.authProps.isAuthorized ? (
                     <ul>
                     {this.state.theItems.map(shelf=>{
                         return (
@@ -55,7 +55,7 @@ export default class ListShelves extends Component {
                     </ul>
                 ) : (
                     <p>In order to see your bookshelves and their contents, you'll need to sign-in and authorize BookyBooks to access your Google Books account.</p>
-                )}
+                )*/}
             </div>
         )
     }
