@@ -10,13 +10,14 @@ export default function Header({ authProps }) {
     //if(location === 'homepage') {
     // classnames magic
     //}
+
+    // style={{ backgroundColor: "#eff0eb" }}
     return (
         <React.Fragment>
             <nav
                 aria-label="main navigation"
                 className={cn("navbar")}
-                role="navigation"
-                style={{ backgroundColor: "#eff0eb" }}
+                role="navigation"     
             >
                 <div className="navbar-brand">
 
