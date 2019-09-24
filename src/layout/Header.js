@@ -3,13 +3,34 @@ import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import OAuth2 from '../components/OAuth2';
 
-export default function Header({authProps}) {
+export default function Header({ authProps }) {
+    //! Okay. Set the default behavior to show the mini-logo in the top left area, as in the standard bulma navbar. On the homepage, turn this off
 
+    // something like this
+    //if(location === 'homepage') {
+    // classnames magic
+    //}
     return (
         <React.Fragment>
-            <nav className={cn("navbar")} role="navigation" aria-label="main navigation" style={{backgroundColor: "#eff0eb"}}>
+            <nav
+                aria-label="main navigation"
+                className={cn("navbar")}
+                role="navigation"
+                style={{ backgroundColor: "#eff0eb" }}
+            >
                 <div className="navbar-brand">
-                    <a href="https://www.google.com" role="button" className={cn("navbar-burger", "burger")} aria-label="menu" aria-expanded="false" data-target="navbar">
+
+                    <Link className="navbar-item" to="/">
+                        <h1 className={cn('title', 'is-4', 'is-marginless')}>BookyBooks</h1>
+                    </Link>
+                    <a
+                        aria-label="menu"
+                        aria-expanded="false"
+                        className={cn("navbar-burger", "burger")}
+                        data-target="navbar"
+                        href="https://www.google.com"
+                        role="button"
+                    >
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
@@ -23,7 +44,7 @@ export default function Header({authProps}) {
                         <Link to="/library" className="navbar-item">Library</Link>
                         <Link to="/reviews" className="navbar-item">Reviews</Link>
                         <div className={cn("navbar-item", "has-dropdown", "is-hoverable")}>
-                            <button className="navbar-link" style={{background:'none',border:'none'}}>More</button>
+                            <button className="navbar-link" style={{ background: 'none', border: 'none' }}>More</button>
                             <div className="navbar-dropdown">
                                 <Link to="/about" className="navbar-item">About</Link>
                                 <Link to="/contact" className="navbar-item">Contact</Link>
@@ -33,16 +54,18 @@ export default function Header({authProps}) {
                             </div>
                         </div>
                         <div className="navbar-item">
-                            <OAuth2 authProps={authProps}/>
+                            <OAuth2 authProps={authProps} />
                         </div>
                     </div>
                 </div>
             </nav>
 
-            <header className="header">
-                <h1 className="title">BookyBooks</h1>
-                <h2 className="subtitle">Books, Authors, Thoughts</h2>
-            </header>
+
         </React.Fragment>
     )
 }
+
+// <header className={cn('header', 'section')}>
+//     <h1 className="title">BookyBooks</h1>
+//     <h2 className="subtitle">Books, Authors, Thoughts</h2>
+// </header>

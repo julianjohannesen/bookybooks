@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -28,15 +28,17 @@ export default class Search extends Component {
 
     }
 
-    render(){
-    return (
-        <React.Fragment>
-            <Header authProps={this.props.authProps}/>
-            <SearchBox books={this.state.books} searchForBooks={this.searchForBooks} />
-            <SearchResults  books={this.state.books}/>
-            <Footer />
-        </React.Fragment>
+    render() {
+        return (
+            <Fragment>
+                <Header authProps={this.props.authProps} />
+                <div className="section">
+                    <SearchBox books={this.state.books} searchForBooks={this.searchForBooks} />
+                    <SearchResults books={this.state.books} />
+                </div>
+                <Footer />
+            </Fragment>
 
-    )
+        )
     }
 }

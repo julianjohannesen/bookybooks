@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 
-export default function Reviews({authProps}) {
+export default function Reviews({ authProps }) {
     return (
-        <React.Fragment>
+        <Fragment>
             <Header authProps={authProps} />
-            <article className="section">
-                <p>This is the about page.</p>
-            </article>
+            <div className='section'>
+                <article className="section">
+                    <p>This is the about page.</p>
+                </article>
+            </div>
             <Footer />
-        </React.Fragment>
+        </Fragment>
 
     )
 }
