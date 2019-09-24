@@ -1,16 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import Hero from '../layout/Hero';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 
 export default function privacy({ authProps }) {
     return (
-        <Fragment>
-            <Header authProps={authProps} />
-            <div className='section'>
+        <Hero
+            head={<Header authProps={authProps} />}
+
+            body={<div className='section'>
                 <article className="section">
-
-
-
                     <h1>Privacy Policy</h1>
 
                     <p>Effective date: September 18, 2019</p>
@@ -150,9 +149,10 @@ export default function privacy({ authProps }) {
                         https://books.google.com/googlebooks/privacy.html</p>
 
                 </article>
-            </div>
-            <Footer />
-        </Fragment>
+            </div>}
+            
+            foot={<Footer />}
+        />
 
     )
 }
