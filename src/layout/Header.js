@@ -4,6 +4,7 @@ import cn from 'classnames';
 import OAuth2 from '../components/OAuth2';
 
 export default function Header({authProps}) {
+
     return (
         <React.Fragment>
             <nav className={cn("navbar")} role="navigation" aria-label="main navigation" style={{backgroundColor: "#eff0eb"}}>
