@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 export default function Hero(props) {
     return (
-        <section className={cn("hero", "is-success", "is-fullheight")}>
+        <section className={cn("hero", "is-light", "is-fullheight")}>
             <section className="hero-head">
                 {props.head}
             </section>

@@ -18,8 +18,8 @@ export default class Head extends Component {
                     
                     <meta property="og:title" content="BookyBooks" />
                     <meta property="og:site_name" content="BookyBooks" />
-                    <meta property="og:url" content="BookyBooksLive.netlify.com" />
-                    <meta property="og:description" content="BookyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books." />
+                    <meta property="og:url" content="https://BookyBooks.org" />
+                    <meta property="og:description" content="BookyBooks is a place to keep track of what you're reading and what you're writing about what you're reading." />
                     <meta property="og:type" content="website" />
                     <meta property="og:image" content="" />
 

@@ -11,10 +11,17 @@ export default function Header({ authProps }) {
     // classnames magic
     //}
 
+    // Old inline style on navbar
     // style={{ backgroundColor: "#eff0eb" }}
+
+    // Old header piece
+    // <header className={cn('header', 'section')}>
+    //     <h1 className="title">BookyBooks</h1>
+    //     <h2 className="subtitle">Books, Authors, Thoughts</h2>
+    // </header>
+
     return (
-        <React.Fragment>
-            <nav
+            <header
                 aria-label="main navigation"
                 className={cn("navbar")}
                 role="navigation"     
@@ -45,7 +52,7 @@ export default function Header({ authProps }) {
                         <Link to="/library" className="navbar-item">Library</Link>
                         <Link to="/reviews" className="navbar-item">Reviews</Link>
                         <div className={cn("navbar-item", "has-dropdown", "is-hoverable")}>
-                            <button className="navbar-link" style={{ background: 'none', border: 'none' }}>More</button>
+                            <a className="navbar-link">More</a>
                             <div className="navbar-dropdown">
                                 <Link to="/about" className="navbar-item">About</Link>
                                 <Link to="/contact" className="navbar-item">Contact</Link>
@@ -59,14 +66,6 @@ export default function Header({ authProps }) {
                         </div>
                     </div>
                 </div>
-            </nav>
-
-
-        </React.Fragment>
+            </header>
     )
 }
-
-// <header className={cn('header', 'section')}>
-//     <h1 className="title">BookyBooks</h1>
-//     <h2 className="subtitle">Books, Authors, Thoughts</h2>
-// </header>
