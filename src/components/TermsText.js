@@ -3,7 +3,7 @@ import React from 'react';
 export default function TermsText(){
     return (
         
-    <article className="section">
+    <article>
 
             <h1>Terms of Service ("Terms")</h1>
 

@@ -37,7 +37,7 @@ export default class Search extends Component {
                 head={<Header authProps={this.props.authProps} />}
                 
                 body={
-                    <div className="section">
+                    <div>
                         <SearchBox books={this.state.books} searchForBooks={this.searchForBooks} />
                         <SearchResults books={this.state.books} />
                     </div>

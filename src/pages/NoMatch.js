@@ -12,7 +12,7 @@ export default function NoMatch({ location, authProps }) {
             }
             body={
 
-                <article className="section">
+                <article >
                     <h3>Sorry. We could not find a match for <code>{location.pathname}</code></h3>
                     <p>Return <Link to="/">Home</Link></p>
                 </article>

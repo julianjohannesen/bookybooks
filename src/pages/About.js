@@ -10,8 +10,8 @@ export default function About({ authProps }) {
                 <Header authProps={authProps} />
             }
             body={
-                <div className='section'>
-                    <article className="section">
+                
+                    <article>
                         <p>This is the about page.</p>
                         <p>Content. Content. Content.</p>
                         <p>Content. Content. Content.</p>
@@ -19,7 +19,7 @@ export default function About({ authProps }) {
                         <p>Content. Content. Content.</p>
 
                     </article>
-                </div>
+                
             }
             foot={
                 <Footer />

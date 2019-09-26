@@ -3,7 +3,7 @@ import React from 'react'
 export default function PrivacyText() {
     return (
 
-        <article className="section">
+        <article>
             <h1>Privacy Policy</h1>
 
             <p>Effective date: September 18, 2019</p>

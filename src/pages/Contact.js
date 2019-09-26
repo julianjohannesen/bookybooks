@@ -10,8 +10,8 @@ export default function Contact ({ authProps }) {
                 <Header authProps={authProps} />
             }
             body={
-                <div className='section'>
-                    <article className="section">
+                
+                    <article >
                         <p>Contact us.</p>
                         <p>Content. Content. Content.</p>
                         <p>Content. Content. Content.</p>
@@ -19,7 +19,7 @@ export default function Contact ({ authProps }) {
                         <p>Content. Content. Content.</p>
 
                     </article>
-                </div>
+                
             }
             foot={
                 <Footer />
