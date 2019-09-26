@@ -1,11 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BookyBooks",
+  "name": "BookyBooks",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "favicon.png",
+      "sizes": "512x512 152x152 144x144 120x120 114x114 72x72 64x64 57x57 48x48 32x32 24x24 16x16",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

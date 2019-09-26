@@ -11,12 +11,12 @@ export default function NoMatch({ location, authProps }) {
                 <Header authProps={authProps} />
             }
             body={
-                <div className='section'>
-                    <article className="section">
-                        <h3>Sorry. We could not find a match for <code>{location.pathname}</code></h3>
-                        <p>Return <Link to="/">Home</Link></p>
-                    </article>
-                </div>
+
+                <article className="section">
+                    <h3>Sorry. We could not find a match for <code>{location.pathname}</code></h3>
+                    <p>Return <Link to="/">Home</Link></p>
+                </article>
+
             }
             foot={
                 <Footer />
