@@ -9,8 +9,8 @@ import Library from './pages/Library';
 import Reviews from './pages/Reviews';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import terms from './pages/terms';
-import privacy from './pages/privacy';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 import NoMatch from './pages/NoMatch';
 import './App.scss';
 
@@ -111,9 +111,9 @@ class App extends Component {
 
 						<Route path="/contact" render={props => <Contact {...props} authProps={this.state} />} />
 
-						<Route path="/privacy" render={props => <privacy {...props} authProps={this.state} />} />
+						<Route path="/privacy" render={props => <Privacy {...props} authProps={this.state} />} />
 
-						<Route path="/terms" render={props => <terms {...props} authProps={this.state} />} />
+						<Route path="/terms" render={props => <Terms {...props} authProps={this.state} />} />
 
 						<Route render={props => <NoMatch {...props} authProps={this.state} />} />
 					</Switch>
