@@ -3,22 +3,24 @@ import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import OAuth2 from '../components/OAuth2';
 
+//! Read a little about Aria and burger menus
+
 export default function Header({ authProps }) {
-    //! Okay. Set the default behavior to show the mini-logo in the top left area, as in the standard bulma navbar. On the homepage, turn this off
 
-    // something like this
-    //if(location === 'homepage') {
-    // classnames magic
-    //}
-
-    // Old inline style on navbar
-    // style={{ backgroundColor: "#eff0eb" }}
+    // Old navbar color
+    // backgroundColor: "#eff0eb" 
 
     // Old header piece
     // <header className={cn('header', 'section')}>
     //     <h1 className="title">BookyBooks</h1>
     //     <h2 className="subtitle">Books, Authors, Thoughts</h2>
     // </header>
+
+    //? Better to do this with classnames?
+    const handleBurgerClick = (event) => {
+        event.target.classList.toggle('is-active');
+        document.getElementById('navbar').classList.toggle('is-active');
+    }
 
     return (
             <header
@@ -35,8 +37,8 @@ export default function Header({ authProps }) {
                         aria-label="menu"
                         aria-expanded="false"
                         className={cn("navbar-burger", "burger")}
-                        data-target="navbar"
-                        href="https://www.google.com"
+                        id="burger"
+                        onClick={handleBurgerClick}
                         role="button"
                     >
                         <span aria-hidden="true"></span>

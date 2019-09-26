@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Head from './components/Head'
 import App from './App';
 
