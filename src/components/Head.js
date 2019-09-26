@@ -9,10 +9,11 @@ export default class Head extends Component {
 
         return (
             <Fragment>
+                <TypographyStyle typography={typography} />
+                {/* This will appear in the body */}
+                <GoogleFont typography={typography} />
+                
                 <Helmet>
-                    <TypographyStyle typography={typography} />
-                    {/* This will appear in the body */}
-                    <GoogleFont typography={typography} />
 
                     <meta name="author" content="Julian Johannesen" />
                     <meta name="description" content="BookyBooks is a personal library for storing, sorting, filtering, tagging, and writing about your favorite books." />

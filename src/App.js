@@ -4,6 +4,7 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Search from './pages/Search';
 import Library from './pages/Library';
 import Reviews from './pages/Reviews';
@@ -98,25 +99,27 @@ class App extends Component {
 
 			<div className="App">
 				<Router basename={process.env.PUBLIC_URL}>
-					<Switch>
-						<Route exact path="/" render={props => (<Search {...props} authProps={this.state} />)} />
+					<ScrollToTop>
+						<Switch>
+							<Route exact path="/" render={props => (<Search {...props} authProps={this.state} />)} />
 
-						<Route path="/search" render={props => (<Search {...props} authProps={this.state} />)} />
+							<Route path="/search" render={props => (<Search {...props} authProps={this.state} />)} />
 
-						<Route path="/library" render={props => (<Library {...props} authProps={this.state} />)} />
+							<Route path="/library" render={props => (<Library {...props} authProps={this.state} />)} />
 
-						<Route path="/reviews" render={props => (<Reviews {...props} authProps={this.state} />)} />
+							<Route path="/reviews" render={props => (<Reviews {...props} authProps={this.state} />)} />
 
-						<Route path="/about" render={props => <About {...props} authProps={this.state} />} />
+							<Route path="/about" render={props => <About {...props} authProps={this.state} />} />
 
-						<Route path="/contact" render={props => <Contact {...props} authProps={this.state} />} />
+							<Route path="/contact" render={props => <Contact {...props} authProps={this.state} />} />
 
-						<Route path="/privacy" render={props => <Privacy {...props} authProps={this.state} />} />
+							<Route path="/privacy" render={props => <Privacy {...props} authProps={this.state} />} />
 
-						<Route path="/terms" render={props => <Terms {...props} authProps={this.state} />} />
+							<Route path="/terms" render={props => <Terms {...props} authProps={this.state} />} />
 
-						<Route render={props => <NoMatch {...props} authProps={this.state} />} />
-					</Switch>
+							<Route render={props => <NoMatch {...props} authProps={this.state} />} />
+						</Switch>
+					</ScrollToTop>
 				</Router>
 			</div>
 
