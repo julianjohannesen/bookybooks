@@ -4,7 +4,7 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import PrivacyText from '../components/PrivacyText';
 
-export default function Terms({ authProps }) {
+export default function Privacy({ authProps }) {
     return (
         <Hero
             authProps={authProps}
