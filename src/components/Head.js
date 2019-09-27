@@ -12,7 +12,7 @@ export default class Head extends Component {
                 <TypographyStyle typography={typography} />
                 {/* This will appear in the body */}
                 <GoogleFont typography={typography} />
-                
+
                 <Helmet>
 
                     <meta name="author" content="Julian Johannesen" />
@@ -25,19 +25,12 @@ export default class Head extends Component {
                     <meta property="og:type" content="website" />
                     <meta property="og:image" content="" />
 
-                    {/* Favicon generics: 512x512 152x152 144x144 120x120 114x114 72x72 64x64 57x57 48x48 32x32 24x24 16x16 */}
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-16.png" sizes="16x16" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-24.png" sizes="24x24" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-32.png" sizes="32x32" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-48.png" sizes="48x48" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-57.png" sizes="57x57" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-64.png" sizes="64x64" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-72.png" sizes="72x72" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-114.png" sizes="114x114" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-120.png" sizes="120x120" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-144.png" sizes="144x144" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-152.png" sizes="152x152" />
-                    <link rel="icon" href="%PUBLIC_URL%/favicon-512.png" sizes="512x512" />
+                    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+                    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+                    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+                    <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#5bbad5" />
+                    <meta name="msapplication-TileColor" content="#9f00a7" />
+                    <meta name="theme-color" content="#ffffff" />
 
                     <script type="text/javascript" async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 

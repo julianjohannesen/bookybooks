@@ -3,6 +3,7 @@ import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
 import thumbnailDefault from '../assets/thumbnailDefault.png';
 
+//! handleClose does not need to be passed from anywhere, if all it's doing is closing the modal. It should just be defined here. authorList makes more sense because I use it in more than one component
 export default function BookDetail({book, authorList, generateRatings, handleClose, show}) {
 
     const {
@@ -23,6 +24,7 @@ export default function BookDetail({book, authorList, generateRatings, handleClo
         //canonicalVolumeLink = '',
     } = book.volumeInfo
 
+    // show is a boolean value passed to BookDetail
     const showModal = cn({
         modal: true,
         ['is-active']: show
@@ -30,8 +32,10 @@ export default function BookDetail({book, authorList, generateRatings, handleClo
 
     return (
         //! redo with classnames, move logic out of JSX
+        //! And get rid of all of the inline styling, e.g. on figure
         <div className={showModal}>
-            <div className="modal-background"></div>
+            <div className="modal-background">
+            </div>
             <div className="modal-card">
                 <header className="modal-card-head">
                     <p className="modal-card-title">{title}</p>
@@ -43,7 +47,7 @@ export default function BookDetail({book, authorList, generateRatings, handleClo
                 </header>
                 <section className="modal-card-body">
                     <figure 
-                        className="image is-pulled-left" 
+                        className={cn("image", "is-pulled-left")} 
                         style={{ maxWidth: "128px", marginRight: "1em", }}
                     >
                         <img 

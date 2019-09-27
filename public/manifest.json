@@ -3,13 +3,18 @@
   "name": "BookyBooks",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "512x512 152x152 144x144 120x120 114x114 72x72 64x64 57x57 48x48 32x32 24x24 16x16",
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "start_url": "https://bookybooks.org",
+  "display": "standalone"
 }

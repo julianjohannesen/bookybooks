@@ -7,16 +7,6 @@ import OAuth2 from '../components/OAuth2';
 
 export default function Header({ authProps }) {
 
-    // Old navbar color
-    // backgroundColor: "#eff0eb" 
-
-    // Old header piece
-    // <header className={cn('header', 'section')}>
-    //     <h1 className="title">BookyBooks</h1>
-    //     <h2 className="subtitle">Books, Authors, Thoughts</h2>
-    // </header>
-
-    //? Better to do this with classnames?
     const handleBurgerClick = (event) => {
         event.target.classList.toggle('is-active');
         document.getElementById('navbar').classList.toggle('is-active');
