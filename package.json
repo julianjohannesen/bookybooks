@@ -1,26 +1,17 @@
 {
-  "name": "bookybook",
+  "name": "bookybooks",
   "version": "0.1.0",
   "homepage": "https://bookybooks.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/julianjohannesen/mybooks/"
+    "url": "https://github.com/julianjohannesen/bookybooks/"
   },
   "bugs": {
-    "url": "https://github.com/julianjohannesen/mybooks/issues",
+    "url": "https://github.com/julianjohannesen/bookybooks/issues",
     "email": "julian.johannesen@gmail.com"
   },
   "private": true,
-  "dependencies": {
-    "jest-environment-enzyme": "^7.1.1",
-    "jest-enzyme": "^7.1.1",
-    "netlify-cli": "^2.15.0",
-    "npm": "^6.11.3",
-    "react-helmet": "^5.2.1",
-    "react-typography": "^0.16.19",
-    "typography": "^0.16.19",
-    "typography-theme-fairy-gates": "^0.16.19"
-  },
+  "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -42,13 +33,21 @@
     "classnames": "^2.2.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "jest-enzyme": "^7.1.1",
+    "jest-environment-enzyme": "^7.1.1",
+    "netlify-cli": "^2.15.0",
     "node-sass": "^4.12.0",
+    "npm": "^6.11.3",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.1.1",
     "react-test-renderer": "^16.9.0",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-fairy-gates": "^0.16.19",
     "uuid": "^3.3.3"
   }
 }
