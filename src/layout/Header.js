@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import OAuth2 from '../components/OAuth2';
-import Modal from '../components/Modal';
+import SimpleModal from '../components/SimpleModal';
 
 //! Read a little about Aria and burger menus
 
@@ -13,13 +13,10 @@ export default function Header({ authProps }) {
         document.getElementById('navbar').classList.toggle('is-active');
     }
 
-    const handleModalClose = (event) => {
-        document.querySelector('.modal').classList.toggle('is-active');
-    }
-
     const revokeAccess = (event) => {
         if(!authProps.isSignedIn){
-            handleModalClose()
+            document.querySelector('dialog').showModal();
+            return;
         }
         authProps.revokeAccess()
     }
@@ -76,15 +73,9 @@ export default function Header({ authProps }) {
             
             </header>
 
-            <Modal 
-                className="modal" 
-                content="You must be signed in in order to revoke BookyBooks' access to your Google Books account."
-                footer={false}
-                handleModalClose={handleModalClose}
-                id="revoke-modal" 
-                title="" 
-            />
-            </Fragment>
+            <SimpleModal content="You must be signed in in order to revoke BookyBooks' access to your Google Books account." />
+
+        </Fragment>
 
     )
 }
