@@ -23,7 +23,7 @@ export default class Head extends Component {
                     <meta property="og:url" content="https://BookyBooks.org" />
                     <meta property="og:description" content="BookyBooks is a place to keep track of what you're reading and what you're writing about what you're reading." />
                     <meta property="og:type" content="website" />
-                    <meta property="og:image" content="" />
+                    <meta property="og:image" content="/favicon.ico" />
 
                     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
                     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

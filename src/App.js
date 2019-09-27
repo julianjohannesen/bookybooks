@@ -1,8 +1,6 @@
-//! I made some sort of routing error. I can't go directly to a url without first loading the site. Like I can't got to bookybooks/library without first going to bookybooks/
-
 //! When the site loads, you briefly see the sign in text, before it realizes that your signed in already
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Search from './pages/Search';
@@ -30,7 +28,8 @@ class App extends Component {
 		isSignedIn: false,
 		isAuthorized: false,
 		signIn: () => { console.warn('No GoogleAuth instance.') },
-		signOut: () => { console.warn('No GoogleAuth instance.') }
+		signOut: () => { console.warn('No GoogleAuth instance.') },
+		revokeAccess: () => { console.warn('No GoogleAuth instance.') }
 	}
 
 	// Handle loading gapi, or handle any errors
@@ -76,7 +75,8 @@ class App extends Component {
 			this.setState({
 				isSignedIn: this.state.GoogleAuth.isSignedIn.get(),
 				signIn: this.state.GoogleAuth.signIn,
-				signOut: this.state.GoogleAuth.signOut
+				signOut: this.state.GoogleAuth.signOut,
+				revokeAccess: this.state.GoogleAuth.disconnect
 			});
 		}
 		// Once a user has signed in, get the current user and determine authorization
@@ -96,32 +96,33 @@ class App extends Component {
 
 	render() {
 		return (
+			<Fragment>
+			
+			<div className="App"></div>
+			<Router basename={process.env.PUBLIC_URL}>
+				<ScrollToTop>
+					<Switch>
+						<Route exact path="/" render={props => (<Search {...props} authProps={this.state} />)} />
 
-			<div className="App">
-				<Router basename={process.env.PUBLIC_URL}>
-					<ScrollToTop>
-						<Switch>
-							<Route exact path="/" render={props => (<Search {...props} authProps={this.state} />)} />
+						<Route path="/search" render={props => (<Search {...props} authProps={this.state} />)} />
 
-							<Route path="/search" render={props => (<Search {...props} authProps={this.state} />)} />
+						<Route path="/library" render={props => (<Library {...props} authProps={this.state} />)} />
 
-							<Route path="/library" render={props => (<Library {...props} authProps={this.state} />)} />
+						<Route path="/reviews" render={props => (<Reviews {...props} authProps={this.state} />)} />
 
-							<Route path="/reviews" render={props => (<Reviews {...props} authProps={this.state} />)} />
+						<Route path="/about" render={props => <About {...props} authProps={this.state} />} />
 
-							<Route path="/about" render={props => <About {...props} authProps={this.state} />} />
+						<Route path="/contact" render={props => <Contact {...props} authProps={this.state} />} />
 
-							<Route path="/contact" render={props => <Contact {...props} authProps={this.state} />} />
+						<Route path="/privacy" render={props => <Privacy {...props} authProps={this.state} />} />
 
-							<Route path="/privacy" render={props => <Privacy {...props} authProps={this.state} />} />
+						<Route path="/terms" render={props => <Terms {...props} authProps={this.state} />} />
 
-							<Route path="/terms" render={props => <Terms {...props} authProps={this.state} />} />
-
-							<Route render={props => <NoMatch {...props} authProps={this.state} />} />
-						</Switch>
-					</ScrollToTop>
-				</Router>
-			</div>
+						<Route render={props => <NoMatch {...props} authProps={this.state} />} />
+					</Switch>
+				</ScrollToTop>
+			</Router>
+			</Fragment>
 
 		);
 	}

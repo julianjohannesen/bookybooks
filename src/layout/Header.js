@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import OAuth2 from '../components/OAuth2';
+import Modal from '../components/Modal';
 
 //! Read a little about Aria and burger menus
 
@@ -12,7 +13,19 @@ export default function Header({ authProps }) {
         document.getElementById('navbar').classList.toggle('is-active');
     }
 
+    const handleModalClose = (event) => {
+        document.querySelector('.modal').classList.toggle('is-active');
+    }
+
+    const revokeAccess = (event) => {
+        if(!authProps.isSignedIn){
+            handleModalClose()
+        }
+        authProps.revokeAccess()
+    }
+
     return (
+        <Fragment>
             <header
                 aria-label="main navigation"
                 className={cn("navbar")}
@@ -49,6 +62,8 @@ export default function Header({ authProps }) {
                                 <Link to="/about" className="navbar-item">About</Link>
                                 <Link to="/contact" className="navbar-item">Contact</Link>
                                 <hr className="navbar-divider" />
+                                <a onClick={revokeAccess} className="navbar-item">Revoke Access</a>
+                                <hr className="navbar-divider" />
                                 <a href="https://github.com/julianjohannesen/bookybooks" className="navbar-item">Repo</a>
                                 <a href="https://github.com/julianjohannesen/bookybooks/issues" className="navbar-item">Report an issue</a>
                             </div>
@@ -58,6 +73,18 @@ export default function Header({ authProps }) {
                         </div>
                     </div>
                 </div>
+            
             </header>
+
+            <Modal 
+                className="modal" 
+                content="You must be signed in in order to revoke BookyBooks' access to your Google Books account."
+                footer={false}
+                handleModalClose={handleModalClose}
+                id="revoke-modal" 
+                title="" 
+            />
+            </Fragment>
+
     )
 }
