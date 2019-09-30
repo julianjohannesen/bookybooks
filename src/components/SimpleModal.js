@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
+import cn from 'classnames';
 import Styled from 'styled-components';
 import dialogPolyfill from 'dialog-polyfill';
 
 const Dialog = Styled.dialog`
     &::backdrop {
-        backgroundColor: 'rgba(0,0,0,.8)'
-    }
+        background-color: rgba(0,0,0,0.8);
+    };
+    border-radius: 1em;
+    border: none;
+    font-size: 1.5em;
+    max-width: 75%;
+`;
+
+const Form = Styled.form`
+    display: flex;
+    justify-content: center;
+`;
+
+const Input = Styled.input`
+    margin-top: 1em;
 `;
 
 export default class SimpleModal extends Component{
@@ -18,11 +32,11 @@ export default class SimpleModal extends Component{
 
     render(){
         return (     
-            <Dialog className="modal">
+            <Dialog>
                 {this.props.content}
-                <form method="dialog">
-                    <input type="submit" value="Close" />
-                </form>
+                <Form method="dialog">
+                    <Input className={cn("button", "is-primary", "is-large")} type="submit" value="Close" />
+                </Form>
             </Dialog> 
         )
     }
