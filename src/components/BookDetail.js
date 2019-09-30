@@ -7,6 +7,8 @@ import thumbnailDefault from '../assets/thumbnailDefault.png';
 
 //! Could refactor this with React Router modal script https://reacttraining.com/react-router/web/example/modal-gallery
 
+//! Google has it's own solution for default thumbnails. Gotta look it up.
+
 export default function BookDetail({book, authorList, generateRatings, handleClose, show}) {
 
     const {

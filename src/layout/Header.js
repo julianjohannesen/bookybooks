@@ -24,6 +24,7 @@ export default function Header({ authProps }) {
     }
 
     const revokeAccess = (event) => {
+        console.log("When revoke access fires, what are the values of isSignedIn, and the showModal funtion: ", authProps.isSignedIn, document.querySelector('dialog').showModal);
         event.preventDefault();
         if(!authProps.isSignedIn){
             document.querySelector('dialog').showModal();
