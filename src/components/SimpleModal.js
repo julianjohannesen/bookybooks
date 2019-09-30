@@ -7,7 +7,7 @@ const Dialog = Styled.dialog`
     &::backdrop {
         background-color: rgba(0,0,0,0.8);
     };
-    border-radius: 1em;
+    border-radius: 0.5em;
     border: none;
     font-size: 1.5em;
     max-width: 75%;
