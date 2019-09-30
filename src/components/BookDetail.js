@@ -5,7 +5,7 @@ import thumbnailDefault from '../assets/thumbnailDefault.png';
 
 //! handleClose does not need to be passed from anywhere, if all it's doing is closing the modal. It should just be defined here. authorList makes more sense because I use it in more than one component
 
-//! Could refactor this with Bulma modal style and React Router modal script https://reacttraining.com/react-router/web/example/modal-gallery
+//! Could refactor this with React Router modal script https://reacttraining.com/react-router/web/example/modal-gallery
 
 export default function BookDetail({book, authorList, generateRatings, handleClose, show}) {
 
